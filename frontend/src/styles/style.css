@@ -1,0 +1,91 @@
+
+
+body,
+html {
+    width: 100%;
+   
+}
+
+.icon-block {
+    padding: 0 15px;
+
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+main {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 100px;
+    display: flex;
+}
+
+.container{
+  
+    max-width: 100vw;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+
+}
+
+.main-header,
+.sub-header {
+    font-family: 'Trispace', sans-serif;
+}
+
+.bottom-footer {
+    position: absolute;
+    max-width: 100vw;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+
+}
+footer{
+    
+    position:relative;
+    height: 20%;
+    max-width: 100vw;
+    width: 100%;
+    bottom: 0;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Trispace', sans-serif;
+
+}
+
+.header-5 {
+    font-size: 1.64rem;
+}
+
+.quiz-transition,
+.block-transition {
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.page{
+    min-height:69vh;
+}
+
+.page2{
+    min-height:69vh;
+}
+.quizPage{
+    min-height:90vh;
+
+}
+.results{
+    min-height:120vh;
+}
