@@ -1,5 +1,6 @@
 let express = require('express');
 
+app.use(bodyParser.json());
 
 let app = express();
 // catch 404 and forward to error handler
@@ -10,6 +11,21 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
   res.send('Successful response.');
+});
+
+const connection = require('./database.js'); // Import your database connection
+
+app.post('/register', (req, res) => {
+    const { fullName, email, password } = req.body;
+    const query = `INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)`;
+    
+    connection.query(query, [fullName, email, password], (err, results) => {
+        if (err) {
+            console.error('Error inserting data: ', err);
+            return res.status(500).send('An error occurred');
+        }
+        res.send('Registered Successfully!');
+    });
 });
 
 
