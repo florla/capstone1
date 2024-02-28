@@ -2,6 +2,7 @@ let express = require('express');
 
 
 let app = express();
+const port = 5000;
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('Example app is listening on port 3000.'));
+app.listen(port, () => console.log('Example app is listening on port 5000.'));
 
 // error handler
 app.use(function(err, req, res, next) {
