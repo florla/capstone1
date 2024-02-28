@@ -5,8 +5,8 @@ import Account from './pages/Account';
 import Categories from './pages/Categories';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Questionaire from './pages/Questionaire';
-import Result from './pages/Result';
+import LoginPage from './pages/Login';
+import RegisterPage from './pages/Register';
 
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/account" element={<Account />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/quiz" element={<Questionaire />} />
-          <Route path="/result" element={<Result />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
         <Footer />
       </Router>
@@ -29,3 +29,4 @@ function App() {
 }
 
 export default App;
+
