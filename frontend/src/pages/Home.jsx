@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import lrnr from './lrnrlogo.png';
+
 
 // Define Home functional component
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
                                 height: 200
                             }}
                         >
-                            <img src={lrnr} alt="LRNR Logo" style={{ maxWidth: "100%", maxHeight: "100%" }} />
+                            
                         </div>
                         {/* Sub-header */}
                         <div class="row center">

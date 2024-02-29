@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const BudgetTracker = () => {
     const [totalBalance, setTotalBalance] = useState(0);
     const [totalIncome, setTotalIncome] = useState(0);
@@ -26,26 +25,31 @@ const BudgetTracker = () => {
         setExpenseAmount(0);
     };
 
-
     return (
         <main className="container">
-            <h1>Budget Tracker</h1>
-            <section className="summary">
-                <div className="balance">
-                    <h2>Balance</h2>
-                    <p>Total Balance: <br /><span id="total-balance">{totalBalance}</span></p>
+            <h1 className="center">Budget Tracker</h1>
+            <section className="row summary">
+                <div className="col s4">
+                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
+                        <h2 className="center white-text">Balance</h2>
+                        <p className="center white-text">Total Balance:<br /><span id="total-balance" className="white-text">{totalBalance}</span></p>
+                    </div>
                 </div>
-                <div className="income-summary">
-                    <h2>Income</h2>
-                    <p>Total Income: <br /><span id="total-income">{totalIncome}</span></p>
+                <div className="col s4">
+                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
+                        <h2 className="center white-text">Income</h2>
+                        <p className="center white-text">Total Income:<br /><span id="total-income" className="white-text">{totalIncome}</span></p>
+                    </div>
                 </div>
-                <div className="expense-summary">
-                    <h2>Expenses</h2>
-                    <p>Total Expenses: <br /><span id="total-expenses">{totalExpenses}</span></p>
+                <div className="col s4">
+                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
+                        <h2 className="center white-text">Expenses</h2>
+                        <p className="center white-text">Total Expenses:<br /><span id="total-expenses" className="white-text">{totalExpenses}</span></p>
+                    </div>
                 </div>
             </section>
-            <section className="forms-container">
-                <form id="income-form">
+            <section className="row forms-container">
+                <form className="col s6" id="income-form">
                     <div className="input-field">
                         <input type="text" id="income-description" value={incomeDescription} onChange={(e) => setIncomeDescription(e.target.value)} required />
                         <label htmlFor="income-description">Income Description</label>
@@ -56,7 +60,7 @@ const BudgetTracker = () => {
                     </div>
                     <button type="button" className="waves-effect waves-light btn" onClick={addIncome}>Add Income</button>
                 </form>
-                <form id="expense-form">
+                <form className="col s6" id="expense-form">
                     <div className="input-field">
                         <input type="text" id="expense-description" value={expenseDescription} onChange={(e) => setExpenseDescription(e.target.value)} required />
                         <label htmlFor="expense-description">Expense Description</label>

@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import BudgetTracker from './pages/Budget';
+import ContactForm from './pages/Contact';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/budget" element={<BudgetTracker />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/contact" element={<ContactForm />} />
         </Routes>
         <Footer />
       </Router>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
     // Return JSX for the footer
     return (
-        <footer className="page-footer blue">
+        <footer className="page-footer teal">
             <div className="container">
                 <div className="row">
                     <div className="col l6 s12">
@@ -18,8 +18,9 @@ export default function Footer() {
                         <ul>
                             {/* Links to different pages */}
                             <li><Link className="white-text" to="/">Home</Link></li>
-                            <li><Link className="white-text" to="/categories">Quiz Generation</Link></li>
                             <li><Link className="white-text" to="/account">Account</Link></li>
+                            <li><Link className="white-text" to="/budget">Budget</Link></li>
+                            <li><Link className="white-text" to="/contact">Contact</Link></li>
                         </ul>
                     </div>
                     <div className="col l3 s12">
