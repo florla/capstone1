@@ -11,9 +11,8 @@ function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        fetch('http://localhost:5000/login', { // Use https in production
+        fetch('http://localhost:5000/login', { 
             method: 'POST',
-            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         })
