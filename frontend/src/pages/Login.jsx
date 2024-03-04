@@ -34,38 +34,49 @@ function LoginPage() {
     };
 
     return (
-        <div className="container" style={{ marginTop: '20px' }}>
+        <div className="container" style={{ marginTop: '90px' }}>
             <div className="row">
                 <div className="col s12 m6 offset-m3">
                     <div className="card-panel z-depth-5">
                         <h4 className="center">Sign In</h4>
-                        <form onSubmit={handleSubmit}>
-                            <div className="input-field">
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="Email"
-                                />
-                            </div>
-                            <div className="input-field">
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    placeholder="Password"
-                                />
-                            </div>
-                            <button className="btn waves-effect waves-light" type="submit" name="action">
-                                Sign In
-                                <i className="material-icons right">send</i>
-                            </button>
-                        </form>
-                        {loginStatus && <p className="center" style={{ marginTop: '20px' }}>{loginStatus}</p>}
+                        <div className="row">
+                            <form className="col s12 m12" onSubmit={handleSubmit}>
+                                <div className="row">
+                                    <div className="input-field col s12 m12">
+                                        <i className="material-icons prefix">email</i>
+                                        <input
+                                            id="icon_email"
+                                            type="email"
+                                            className="validate"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="Your Email"
+                                        />
+                                    </div>
+
+                                    <div className="input-field col s12 m12">
+                                        <i className="material-icons prefix">lock</i>
+                                        <input
+                                            id="icon_password"
+                                            type="password"
+                                            className="validate"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                            placeholder="Password"
+                                        />
+                                    </div>
+                                </div>
+                                <button className="btn waves-effect waves-light center-align" type="submit" name="action">
+                                    Sign In
+                                    <i className="material-icons right">send</i>
+                                </button>
+                                <div className="center" style={{ marginTop: '20px' }}>
+                                    New User? <a href="/register">Register now!</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
