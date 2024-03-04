@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BudgetTracker = () => {
     const [totalBalance, setTotalBalance] = useState(0);
@@ -8,48 +8,66 @@ const BudgetTracker = () => {
     const [incomeAmount, setIncomeAmount] = useState('');
     const [expenseDescription, setExpenseDescription] = useState('');
     const [expenseAmount, setExpenseAmount] = useState('');
+    const [expenseCategory, setExpenseCategory] = useState('');
+    const [incomeList, setIncomeList] = useState([]);
+    const [expenseList, setExpenseList] = useState([]);
+
+    useEffect(() => {
+        const calculateTotalBalance = () => {
+            setTotalBalance(totalIncome - totalExpenses);
+        };
+        calculateTotalBalance();
+    }, [totalIncome, totalExpenses]);
 
     const addIncome = () => {
         const income = parseFloat(incomeAmount);
         setTotalIncome(totalIncome + income);
         setTotalBalance(totalBalance + income);
+        setIncomeList([...incomeList, { description: incomeDescription, amount: incomeAmount }]);
         setIncomeDescription('');
-        setIncomeAmount(0);
+        setIncomeAmount('');
     };
 
     const addExpense = () => {
         const expense = parseFloat(expenseAmount);
         setTotalExpenses(totalExpenses + expense);
         setTotalBalance(totalBalance - expense);
+        setExpenseList([...expenseList, { description: expenseDescription, amount: expenseAmount, category: expenseCategory }]);
         setExpenseDescription('');
-        setExpenseAmount(0);
+        setExpenseAmount('');
+        setExpenseCategory('');
+    };
+
+    const handleCategoryChange = (e) => {
+        setExpenseCategory(e.target.value);
     };
 
     return (
         <main className="container">
-            <h1 className="center">Budget Tracker</h1>
-            <section className="row summary">
+            <h5 className="center">Summary</h5>
+            <section className="row">
                 <div className="col s4">
-                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
-                        <h2 className="center white-text">Balance</h2>
-                        <p className="center white-text">Total Balance:<br /><span id="total-balance" className="white-text">{totalBalance}</span></p>
+                    <div className="card-panel gradient-green" style={{ marginBottom: '20px' }}>
+                        <h5 className="center white-text">Total Income</h5>
+                        <p className="center white-text">{totalIncome}</p>
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
-                        <h2 className="center white-text">Income</h2>
-                        <p className="center white-text">Total Income:<br /><span id="total-income" className="white-text">{totalIncome}</span></p>
+                    <div className="card-panel gradient-red" style={{ marginBottom: '20px' }}>
+                        <h5 className="center white-text">Total Expenses</h5>
+                        <p className="center white-text">{totalExpenses}</p>
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel teal lighten-2" style={{ marginBottom: '20px' }}>
-                        <h2 className="center white-text">Expenses</h2>
-                        <p className="center white-text">Total Expenses:<br /><span id="total-expenses" className="white-text">{totalExpenses}</span></p>
+                    <div className="card-panel gradient-purple" style={{ marginBottom: '20px' }}>
+                        <h5 className="center white-text">Total Balance</h5>
+                        <p className="center white-text">{totalBalance}</p>
                     </div>
                 </div>
             </section>
             <section className="row forms-container">
                 <form className="col s6" id="income-form">
+                    <h5 className="center">Add Income</h5>
                     <div className="input-field">
                         <input type="text" id="income-description" value={incomeDescription} onChange={(e) => setIncomeDescription(e.target.value)} required />
                         <label htmlFor="income-description">Income Description</label>
@@ -61,6 +79,7 @@ const BudgetTracker = () => {
                     <button type="button" className="waves-effect waves-light btn" onClick={addIncome}>Add Income</button>
                 </form>
                 <form className="col s6" id="expense-form">
+                    <h5 className="center">Add Expense</h5>
                     <div className="input-field">
                         <input type="text" id="expense-description" value={expenseDescription} onChange={(e) => setExpenseDescription(e.target.value)} required />
                         <label htmlFor="expense-description">Expense Description</label>
@@ -69,8 +88,62 @@ const BudgetTracker = () => {
                         <input type="number" id="expense-amount" value={expenseAmount} onChange={(e) => setExpenseAmount(e.target.value)} required />
                         <label htmlFor="expense-amount">Amount</label>
                     </div>
+                    <div className="input-field">
+                        <select className="browser-default" value={expenseCategory} onChange={handleCategoryChange}>
+                            <option value="" disabled>Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Housing">Housing</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
                     <button type="button" className="waves-effect waves-light btn" onClick={addExpense}>Add Expense</button>
                 </form>
+            </section>
+            <section className="row">
+                <div className="col s6">
+                    <h5 className="center">Income List</h5>
+                    <table className="striped">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {incomeList.map((income, index) => (
+                                <tr key={index}>
+                                    <td>{income.description}</td>
+                                    <td>{income.amount}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="col s6">
+                    <h5 className="center">Expense List</h5>
+                    <table className="striped">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {expenseList.map((expense, index) => (
+                                <tr key={index}>
+                                    <td>{expense.description}</td>
+                                    <td>{expense.amount}</td>
+                                    <td>{expense.category}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </main>
     );

@@ -11,28 +11,25 @@ function RegisterPage() {
                             <form className="col s12 m12">
                                 <div className="row">
                                     <div className="input-field col s12 m12">
-                                        <i className="mdi-action-account-circle prefix"></i>
-                                        <input id="icon_prefix" type="text" className="validate" />
-                                        <label htmlFor="icon_prefix">Full Name</label>
+                                        <i className="material-icons prefix">account_circle</i>
+                                        <input id="icon_prefix" type="text" className="validate" placeholder="Full Name" />
                                     </div>
 
                                     <div className="input-field col s12 m12">
-                                        <i className="mdi-communication-email prefix"></i>
-                                        <input id="icon_email" type="email" className="validate" />
-                                        <label htmlFor="icon_email">Your Email</label>
+                                        <i className="material-icons prefix">email</i>
+                                        <input id="icon_email" type="email" className="validate" placeholder="Your Email" />
                                     </div>
 
                                     <div className="input-field col s12 m12">
-                                        <i className="fa fa-unlock-alt prefix"></i>
-                                        <input id="icon_password" type="password" className="validate" />
-                                        <label htmlFor="icon_password">Password</label>
+                                        <i className="material-icons prefix">lock</i>
+                                        <input id="icon_password" type="password" className="validate" placeholder="Password" />
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <button className="btn waves-effect waves-light center" type="submit" name="action">
+                        <button className="btn waves-effect waves-light center-align" type="submit" name="action">
                             Sign Up
-                            <i className="fa fa-sign-in right"></i>
+                            <i className="material-icons right">send</i>
                         </button>
                         <div className="center" style={{ marginTop: '20px' }}>
                             Already a user? <a href="/login">Sign In</a>

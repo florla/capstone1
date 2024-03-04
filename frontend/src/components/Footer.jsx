@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Define Footer component
-export default function Footer() {
+export default function Footer({ className }) {
     // Return JSX for the footer
     return (
-        <footer className="page-footer teal">
+        <footer className={`page-footer teal gradient-nav-foot ${className}`}>
             <div className="container">
                 <div className="row">
                     <div className="col l6 s12">

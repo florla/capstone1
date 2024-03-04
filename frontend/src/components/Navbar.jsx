@@ -35,7 +35,7 @@ const Navbar = () => {
     // JSX for the Navbar component
     return (
         <div>
-            <nav className="teal " role="navigation">
+            <nav className="gradient-nav-foot" role="navigation">
                 <div className="nav-wrapper container" ref={navRef}>
                     {/* Logo */}
                     <a id="logo-container" href="/" className="brand-logo">budget</a>

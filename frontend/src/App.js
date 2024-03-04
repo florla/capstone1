@@ -8,6 +8,7 @@ import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import BudgetTracker from './pages/Budget';
 import ContactForm from './pages/Contact';
+import Chatbot from './pages/Chatbot';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
         <Footer />
       </Router>

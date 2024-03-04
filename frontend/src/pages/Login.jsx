@@ -32,7 +32,7 @@ function LoginPage() {
                             <form className="col s12 m12" onSubmit={handleSubmit}>
                                 <div className="row">
                                     <div className="input-field col s12 m12">
-                                        <i className="mdi-communication-email prefix"></i>
+                                        <i className="material-icons prefix">email</i>
                                         <input
                                             id="icon_email"
                                             type="email"
@@ -40,12 +40,12 @@ function LoginPage() {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
+                                            placeholder="Your Email"
                                         />
-                                        <label htmlFor="icon_email">Your Email</label>
                                     </div>
 
                                     <div className="input-field col s12 m12">
-                                        <i className="fa fa-unlock-alt prefix"></i>
+                                        <i className="material-icons prefix">lock</i>
                                         <input
                                             id="icon_password"
                                             type="password"
@@ -53,13 +53,13 @@ function LoginPage() {
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
+                                            placeholder="Password"
                                         />
-                                        <label htmlFor="icon_password">Password</label>
                                     </div>
                                 </div>
-                                <button className="btn waves-effect waves-light center" type="submit" name="action">
+                                <button className="btn waves-effect waves-light center-align" type="submit" name="action">
                                     Sign In
-                                    <i className="fa fa-sign-in right"></i>
+                                    <i className="material-icons right">send</i>
                                 </button>
                                 <div className="center" style={{ marginTop: '20px' }}>
                                     New User? <a href="/register">Register now!</a>
