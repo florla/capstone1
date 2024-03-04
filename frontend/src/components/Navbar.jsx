@@ -43,16 +43,18 @@ const Navbar = () => {
                     <ul className="right hide-on-med-and-down">
                         <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
                         <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
-                        <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
-                        <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
+                        <li><Link to="/financialarticles" onClick={handleLinkClick}>Articles</Link></li>
+                        <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
+                        <li><Link to="/chatbot" onClick={handleLinkClick}>Chatbot</Link></li>
                     </ul>
 
                     {/* Links for mobile */}
                     <ul id="nav-mobile" className={`sidenav ${isOpen ? "open" : ""}`} style={{ transform: isOpen ? "translateX(0%)" : "translateX(-105%)" }}>
                         <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
                         <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
-                        <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
-                        <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
+                        <li><Link to="/financialarticles" onClick={handleLinkClick}>Articles</Link></li>
+                        <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
+                        <li><Link to="/chatbot" onClick={handleLinkClick}>Chatbot</Link></li>
                     </ul>
 
                     {/* Mobile nav trigger */}
