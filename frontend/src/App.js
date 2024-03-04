@@ -8,6 +8,7 @@ import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import BudgetTracker from './pages/Budget';
 import ContactForm from './pages/Contact';
+import Articles from './pages/FinancialArticles';
 import Chatbot from './pages/Chatbot';
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/FinancialArticles" element={<Articles />} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
         <Footer />
@@ -33,4 +35,3 @@ function App() {
 }
 
 export default App;
-
