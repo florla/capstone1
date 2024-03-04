@@ -23,6 +23,12 @@ const Chatbot = () => {
         }
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSendMessage();
+        }
+    };
+
     return (
         <div>
             <div className="container">
@@ -35,7 +41,7 @@ const Chatbot = () => {
                     ))}
                 </div>
                 <div className="input-field">
-                    <input type="text" id="chat-input" value={inputText} onChange={handleInputChange} />
+                    <input type="text" id="chat-input" value={inputText} onChange={handleInputChange} onKeyPress={handleKeyPress} />
                     <button className="waves-effect waves-light btn" onClick={handleSendMessage}>Send</button>
                 </div>
             </div>

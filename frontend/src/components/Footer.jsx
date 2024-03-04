@@ -20,7 +20,9 @@ export default function Footer({ className }) {
                             <li><Link className="white-text" to="/">Home</Link></li>
                             <li><Link className="white-text" to="/account">Account</Link></li>
                             <li><Link className="white-text" to="/budget">Budget</Link></li>
-                            <li><Link className="white-text" to="/contact">Contact</Link></li>
+                            <li><Link className="white-text" to="/financialarticles">Articles</Link></li>
+                            <li><Link className="white-text" to="/contact">Contact Us</Link></li>
+                            <li><Link className="white-text" to="/chatbot">Chatbot</Link></li>
                         </ul>
                     </div>
                     <div className="col l3 s12">
