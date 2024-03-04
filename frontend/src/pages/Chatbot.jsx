@@ -10,16 +10,20 @@ const Chatbot = () => {
         setInputText(e.target.value);
     };
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         if (inputText.trim() !== '') {
             const userMessage = { text: inputText, sender: "user" };
             setMessages(prevMessages => [...prevMessages, userMessage]); // Append user message to the messages array
             setInputText('');
             // Simulate a response from the chatbot
-            setTimeout(() => {
-                const botResponse = { text: "I'm sorry, I'm just a demo chatbot and I don't have real responses.", sender: "bot" };
+            // setTimeout(() => {
+            //     const botResponse = { text: "I'm sorry, I'm just a demo chatbot and I don't have real responses.", sender: "bot" };
+            //     setMessages(prevMessages => [...prevMessages, botResponse]); // Append bot response to the messages array
+            // }, 1000);
+            fetch(`http://localhost:5000/chat?prompt=${inputText}`).then(response => response.json()).then(data => {
+                const botResponse = { text: data.response, sender: "bot" };
                 setMessages(prevMessages => [...prevMessages, botResponse]); // Append bot response to the messages array
-            }, 1000);
+            });
         }
     };
 
