@@ -8,8 +8,6 @@ const App = () => {
     return (
         <div>
             <Articles />
-            <button className="btn btn-primary">Financial News</button>
-
         </div>
     );
 };
