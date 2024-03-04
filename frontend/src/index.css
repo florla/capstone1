@@ -11,3 +11,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.gradient-nav-foot {
+  background: linear-gradient(to right, #4fc3f7, #81c784); 
+}
+
+.gradient-green {
+  background: linear-gradient(to right, #4CAF50, #C8E6C9); 
+}
+
+.gradient-red {
+  background: linear-gradient(to right, #F44336, #FFCDD2); 
+}
+
+.gradient-purple {
+  background: linear-gradient(to right, #9C27B0, #E1BEE7);
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+  clear: both;
+  overflow-wrap: break-word;
+}
+
+.user-message {
+  float: right;
+  background-color: #4caf50;
+  color: white;
+}
+
+.bot-message {
+  float: left;
+  background-color: #2196f3;
+  color: white;
+}
+
+.input-field {
+  margin-top: 20px;
+}
+
+.message-text {
+  margin: 0;
+}

@@ -1,51 +1,47 @@
 import React from 'react';
 
-// Define Account functional component
-export default function Account() {
-    // JSX for Account component
+
+const Account = () => {
     return (
-        <>
-            <div class="page">
-                <div class="section no-pad-bot" id="index-banner">
-                    <div class="container">
-                        <h1 class="header teal-text main-header center-align">Account</h1>
-                    </div>
+        <div>
+             {/* Placeholder for greeting message */}
+             <h5>Hello, User!</h5> {/* Placeholder value */}
+            <div className="container">
+                <h3>Dashboard</h3>
+                {/* Placeholder for the chart */}
+                <div className="chart-container">
+                    <p>chart here</p>
                 </div>
-                <div class="container">
-                    <div class="section">
-                        <div class="row">
-                            {/* Streak */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">whatshot</i></h2>
-                                    <p class="header-5 center">Streak</p>
-                                    <p class="light">You have a streak of 5 days!</p>
-                                </div>
+                {/* Placeholder for expense, income, and balance */}
+                <div className="row">
+                    <div className="col s12 m4">
+                        <div className="card blue-grey darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">Expenses</span>
+                                <p>Total Expenses: $500</p> {/* Placeholder value */}
                             </div>
-                            {/* Platinum Quizzes */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">view_list</i></h2>
-                                    <p class="header-5 center">Platinum Quizzes</p>
-                                    <ul>
-                                        <li class="light">golang - intermediate</li>
-                                        <li class="light">Javascript - beginner </li>
-                                        <li class="light">AWS - beginner</li>
-                                    </ul>
-                                </div>
+                        </div>
+                    </div>
+                    <div className="col s12 m4">
+                        <div className="card blue-grey darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">Income</span>
+                                <p>Total Income: $1000</p> {/* Placeholder value */}
                             </div>
-                            {/* lrnr Level */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">person</i></h2>
-                                    <p class="header-5 center">lrnr Level: 2</p>
-                                    <p class="light center">150/200 xp</p>
-                                </div>
+                        </div>
+                    </div>
+                    <div className="col s12 m4">
+                        <div className="card blue-grey darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">Balance</span>
+                                <p>Current Balance: $500</p> {/* Placeholder value */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
-}
+};
+
+export default Account;
