@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const RegisterPage = () => {
@@ -14,7 +13,7 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/register', {
+        fetch('http://localhost:5000/register', { // Use https in production
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,51 +29,67 @@ const RegisterPage = () => {
         .then(data => {
             console.log('Success:', data.message);
             // Reset form data
-            setFormData({
-                fullName: '',
-                email: '',
-                password: '',
-            });
-            // Optionally, handle success (e.g., display a success message)
+            setFormData({ fullName: '', email: '', password: '' });
+            // Optionally, display a success message
         })
         .catch((error) => {
             console.error('Error:', error);
-            // Optionally, handle error (e.g., display an error message)
+            // Optionally, display an error message
         });
     };
 
-
-function RegisterPage() {
     return (
         <div className="container" style={{ marginTop: '90px' }}>
             <div className="row">
                 <div className="col s12 m6 offset-m3">
                     <div className="card-panel z-depth-5">
                         <h4 className="center">Register</h4>
-                        <div className="row">
-                            <form className="col s12 m12">
-                                <div className="row">
-                                    <div className="input-field col s12 m12">
-                                        <i className="material-icons prefix">account_circle</i>
-                                        <input id="icon_prefix" type="text" className="validate" placeholder="Full Name" />
-                                    </div>
-
-                                    <div className="input-field col s12 m12">
-                                        <i className="material-icons prefix">email</i>
-                                        <input id="icon_email" type="email" className="validate" placeholder="Your Email" />
-                                    </div>
-
-                                    <div className="input-field col s12 m12">
-                                        <i className="material-icons prefix">lock</i>
-                                        <input id="icon_password" type="password" className="validate" placeholder="Password" />
-                                    </div>
+                        <form className="col s12 m12" onSubmit={handleSubmit}>
+                            <div className="row">
+                                <div className="input-field col s12 m12">
+                                    <i className="material-icons prefix">account_circle</i>
+                                    <input
+                                        id="icon_prefix"
+                                        type="text"
+                                        className="validate"
+                                        placeholder="Full Name"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
+                                    />
                                 </div>
-                            </form>
-                        </div>
-                        <button className="btn waves-effect waves-light center-align" type="submit" name="action">
-                            Sign Up
-                            <i className="material-icons right">send</i>
-                        </button>
+
+                                <div className="input-field col s12 m12">
+                                    <i className="material-icons prefix">email</i>
+                                    <input
+                                        id="icon_email"
+                                        type="email"
+                                        className="validate"
+                                        placeholder="Your Email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div className="input-field col s12 m12">
+                                    <i className="material-icons prefix">lock</i>
+                                    <input
+                                        id="icon_password"
+                                        type="password"
+                                        className="validate"
+                                        placeholder="Password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+                            <button className="btn waves-effect waves-light center-align" type="submit" name="action">
+                                Sign Up
+                                <i className="material-icons right">send</i>
+                            </button>
+                        </form>
                         <div className="center" style={{ marginTop: '20px' }}>
                             Already a user? <a href="/login">Sign In</a>
                         </div>
@@ -83,6 +98,6 @@ function RegisterPage() {
             </div>
         </div>
     );
-}
+};
 
 export default RegisterPage;

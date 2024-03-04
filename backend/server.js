@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import connection from './database.js'; 
 import session from 'express-session';
+import OpenAI from 'openai';
 
-import cors from 'cors';
 import articlesRouter from './articles.js';
 
 dotenv.config();
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.send('Successful response.');
 });
 
-app.post('/account', (req, res) => {
+app.post('/register', (req, res) => {
     const { fullName, email, password } = req.body;
     const query = `INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)`;
 
