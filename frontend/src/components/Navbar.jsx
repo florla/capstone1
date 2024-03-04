@@ -35,20 +35,26 @@ const Navbar = () => {
     // JSX for the Navbar component
     return (
         <div>
-            <nav className="blue " role="navigation">
+            <nav className="gradient-nav-foot" role="navigation">
                 <div className="nav-wrapper container" ref={navRef}>
                     {/* Logo */}
-                    <a id="logo-container" href="/" className="brand-logo">lrnr</a>
+                    <a id="logo-container" href="/" className="brand-logo">budget</a>
                     {/* Links for desktop */}
                     <ul className="right hide-on-med-and-down">
                         <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
-                        <li><Link to="/categories" onClick={handleLinkClick}>Quiz Generation</Link></li>
+                        <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
+                        <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
+                        <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
                     </ul>
+
                     {/* Links for mobile */}
                     <ul id="nav-mobile" className={`sidenav ${isOpen ? "open" : ""}`} style={{ transform: isOpen ? "translateX(0%)" : "translateX(-105%)" }}>
                         <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
-                        <li><Link to="/categories" onClick={handleLinkClick}>Quiz Generation</Link></li>
+                        <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
+                        <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
+                        <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
                     </ul>
+
                     {/* Mobile nav trigger */}
                     <a href="#" data-target="nav-mobile" className="sidenav-trigger" onClick={toggleNav}><i className="material-icons">menu</i></a>
                 </div>

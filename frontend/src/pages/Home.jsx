@@ -1,73 +1,71 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import lrnr from './lrnrlogo.png';
 
-// Define Home functional component
-export default function Home() {
-    // JSX for Home component
+function App() {
+
     return (
-        <>
-            <div class='fullPage'>
-                <div class="section no-pad-bot" id="index-banner">
-                    <div class="container">
-                        <br /><br />
-                        {/* LRNR Logo */}
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                height: 200
-                            }}
-                        >
-                            <img src={lrnr} alt="LRNR Logo" style={{ maxWidth: "100%", maxHeight: "100%" }} />
+        <div>
+
+            <div id="index-banner" className="parallax-container">
+                <div className="section no-pad-bot">
+                    <div className="container">
+                        <h1 className="header center teal-text text-lighten-2">Budget App Name</h1>
+                        <div className="row center">
+                            <h5 className="header col s12 light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
                         </div>
-                        {/* Sub-header */}
-                        <div class="row center">
-                            <p class="header-5 col s12 light sub-header">Your guided path to programming enlightenment</p>
+                        <div className="row center">
+                            <a href="#!" className="btn-large waves-effect waves-light lighten-1">Find more</a>
                         </div>
-                        {/* Begin Journey button */}
-                        <div class="row center">
-                            <Link to="/categories" id="download-button" className="btn-large waves-effect waves-light teal">
-                                Begin Journey
-                            </Link>
-                        </div>
-                        <br /><br />
                     </div>
                 </div>
+                <div className="parallax"><img src="budget.jpg" alt="img" /></div>
+            </div>
 
-                <div class="container">
-                    <div class="section">
-                        <div class="row">
-                            {/* Personalized Quizzes */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">flash_on</i></h2>
-                                    <p class="center header-5">Personalized Quizzes</p>
-                                    <p class="light">Greetings, young padawan. Are you ready to embark on a journey of personalized enlightenment through the art of coding? Our app, can create custom quizzes that align with your coding skills and interests. Whether you are a novice or a master, our system can generate questions that will test your proficiency in programming languages, tools, and concepts</p>
-                                </div>
+            <div className="container">
+                <div className="section">
+                    <div className="row">
+                        <div className="col s12 m4">
+                            <div className="icon-block">
+                                <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>attach_money</i></h2>
+                                <h5 className="center">Feature one</h5>
+                                <p className="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                             </div>
-                            {/* Rewarding */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">payments</i></h2>
-                                    <p class="center header-5">Rewarding</p>
-                                    <p class="light">Our app is designed to be both challenging and rewarding, so you can learn new concepts while enjoying the process. With our personalized quiz app, you can track your progress, compete with your peers, and discover new areas of expertise. The journey of a thousand lines of code begins with a single keystroke</p>
-                                </div>
+                        </div>
+
+                        <div className="col s12 m4">
+                            <div className="icon-block">
+                                <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>shopping_cart</i></h2>
+                                <h5 className="center">Feature two</h5>
+                                <p className="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                             </div>
-                            {/* Personal SME */}
-                            <div class="col s12 m4">
-                                <div class="icon-block">
-                                    <h2 class="center teal-text text-accent-3"><i class="material-icons">person</i></h2>
-                                    <p class="center header-5">Personal SME</p>
-                                    <p class="light">Welcome to the path of knowledge. Our app is like having a personal subject matter expert at your side, guiding you on your journey towards wisdom</p>
-                                </div>
+                        </div>
+
+                        <div className="col s12 m4">
+                            <div className="icon-block">
+                                <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>account_balance</i></h2>
+                                <h5 className="center">Feature three</h5>
+                                <p className="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                             </div>
                         </div>
                     </div>
-                    <br /><br />
                 </div>
             </div>
-        </>
+
+            <div className="container valign-wrapper section scrollspy" id="aboutus">
+                <div className="section no-pad-bot">
+                    <div className="container">
+                        <div className="center row col s3">
+                            <h3>About Us</h3>
+                        </div>
+                        <div className="center row col s12">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        </div>
+                    </div>
+                </div>
+                <div><img src="#" alt="img" /></div>
+            </div>
+        </div>
     );
 }
+
+export default App;
