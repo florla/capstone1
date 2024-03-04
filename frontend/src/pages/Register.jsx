@@ -1,4 +1,48 @@
-import React from 'react';
+
+import React, { useState } from 'react';
+
+const RegisterPage = () => {
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        password: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:5000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data.message);
+            // Reset form data
+            setFormData({
+                fullName: '',
+                email: '',
+                password: '',
+            });
+            // Optionally, handle success (e.g., display a success message)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Optionally, handle error (e.g., display an error message)
+        });
+    };
+
 
 function RegisterPage() {
     return (
