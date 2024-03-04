@@ -1,24 +1,32 @@
-const mysql = require('mysql2');
-
+import mysql from 'mysql2';
 
 const connection = mysql.createConnection({
-  
     host: '127.0.0.1',
-    // The MySQL user 
     user: 'root',    
-    // The password for the specified user
     password: 'password',
-    // The name of the MySQL database to connect to
     database: 'login',
 });
 
-// Attempting to connect to the MySQL database using the configuration
 connection.connect(function (err) {
-    // If an error occurs during connection, throw an error
-    if (err) throw err;    
-    // Log a success message if connected without errors
+    if (err) {
+        console.error('Error connecting to the database: ', err);
+        return;
+    }    
     console.log('MySQL Database is Connected!!!!'); 
 });
 
+export default connection;
+
+
+
+
+
+
+
+
+
+// Attempting to connect to the MySQL database using the configuration
+
+
 // Exporting the established MySQL connection 
-module.exports = connection;
+// module.exports = connection;

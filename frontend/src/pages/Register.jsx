@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-
-
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
         fullName: '',
@@ -15,15 +13,33 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //logic to handle form submission
-        console.log(formData);
-        // Clear form after submission
-        setFormData({
-            fullName: '',
-            email: '',
-            password: '',
+        fetch('http://localhost:5000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data.message);
+            // Reset form data
+            setFormData({
+                fullName: '',
+                email: '',
+                password: '',
+            });
+            // Optionally, handle success (e.g., display a success message)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Optionally, handle error (e.g., display an error message)
         });
-        // M.toast({ html: 'Registered Successfully!', classes: 'green' });
     };
 
     return (
