@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Doughnut } from "react-chartjs-2";
+import sourceData from "./data/sourceData.json";
 
 const BudgetTracker = () => {
     const [totalBalance, setTotalBalance] = useState(0);
@@ -9,8 +11,8 @@ const BudgetTracker = () => {
     const [expenseDescription, setExpenseDescription] = useState('');
     const [expenseAmount, setExpenseAmount] = useState('');
     const [expenseCategory, setExpenseCategory] = useState('');
-    const [incomeList, setIncomeList] = useState([]);
-    const [expenseList, setExpenseList] = useState([]);
+    const [incomeList, setIncomeList] = useState(Array.from({ length: 4 }, () => ({ description: '', amount: '' })));
+    const [expenseList, setExpenseList] = useState(Array.from({ length: 4 }, () => ({ description: '', amount: '', category: '' })));
 
     useEffect(() => {
         const calculateTotalBalance = () => {
@@ -53,13 +55,13 @@ const BudgetTracker = () => {
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel gradient-red" style={{ marginBottom: '20px' }}>
+                    <div className="card-panel gradient-blue" style={{ marginBottom: '20px' }}>
                         <h5 className="center white-text">Total Expenses</h5>
                         <p className="center white-text">{totalExpenses}</p>
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel gradient-purple" style={{ marginBottom: '20px' }}>
+                    <div className="card-panel gradient-teal" style={{ marginBottom: '20px' }}>
                         <h5 className="center white-text">Total Balance</h5>
                         <p className="center white-text">{totalBalance}</p>
                     </div>
@@ -104,45 +106,90 @@ const BudgetTracker = () => {
                 </form>
             </section>
             <section className="row">
-                <div className="col s6">
-                    <h5 className="center">Income List</h5>
-                    <table className="striped">
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {incomeList.map((income, index) => (
-                                <tr key={index}>
-                                    <td>{income.description}</td>
-                                    <td>{income.amount}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                <div className="col s12 m6">
+                    <div className="dataCard categoryCard">
+                        <Doughnut
+                            data={{
+                                labels: sourceData.map((data) => data.label),
+                                datasets: [
+                                    {
+                                        label: "Count",
+                                        data: sourceData.map((data) => data.value),
+                                        backgroundColor: [
+                                            "rgba(79, 195, 247, 0.8)",
+                                            "rgba(187, 222, 251, 0.8)",
+                                            "rgba(0, 150, 136, 0.8)",
+                                            "rgba(77, 182, 172, 0.8)",
+                                            "rgba(129, 199, 132, 0.8)",
+                                            "rgba(200, 230, 201, 0.8)",
+                                            "rgba(129, 199, 132, 0.8)",
+                                            "rgba(200, 230, 201, 0.8)",
+                                        ],
+                                        borderColor: [
+                                            "rgba(79, 195, 247, 1)",
+                                            "rgba(187, 222, 251, 1)",
+                                            "rgba(0, 150, 136, 1)",
+                                            "rgba(77, 182, 172, 1)",
+                                            "rgba(129, 199, 132, 1)",
+                                            "rgba(200, 230, 201, 1)",
+                                            "rgba(129, 199, 132, 1)",
+                                            "rgba(200, 230, 201, 1)",
+                                        ],
+                                        borderWidth: 1,
+                                    },
+                                ],
+                            }}
+                            options={{
+                                plugins: {
+                                    title: {
+                                        text: "Revenue Sources",
+                                    },
+                                },
+                            }}
+                        />
+                    </div>
                 </div>
-                <div className="col s6">
-                    <h5 className="center">Expense List</h5>
-                    <table className="striped">
-                        <thead>
-                            <tr>
-                                <th>Description</th>
-                                <th>Amount</th>
-                                <th>Category</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {expenseList.map((expense, index) => (
-                                <tr key={index}>
-                                    <td>{expense.description}</td>
-                                    <td>{expense.amount}</td>
-                                    <td>{expense.category}</td>
+                <div className="col s12 m6">
+                    <div className="col s12">
+                        <h5 className="center">Income List</h5>
+                        <table className="striped">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Amount</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {incomeList.map((income, index) => (
+                                    <tr key={index}>
+                                        <td>{income.description}</td>
+                                        <td>{income.amount}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="col s12">
+                        <h5 className="center">Expense List</h5>
+                        <table className="striped">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {expenseList.map((expense, index) => (
+                                    <tr key={index}>
+                                        <td>{expense.description}</td>
+                                        <td>{expense.amount}</td>
+                                        <td>{expense.category}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
         </main>
