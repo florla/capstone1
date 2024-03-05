@@ -33,8 +33,9 @@ const Chatbot = () => {
             fetch(`http://localhost:5000/chat?prompt=${JSON.stringify([...chatLog, { role: "user", content: inputText }])}`).then(response => response.json()).then(data => {
                 const botResponse = { text: data.response, sender: "bot" };
                 setMessages(prevMessages => [...prevMessages, botResponse]); // Append bot response to the messages array
-            });
-            setChatLog([...chatLog, { role: "user", content: inputText }]); // Append user message to the chatLog array
+                setChatLog([...chatLog, { role: "user", content: inputText }, { role: "assistant", content: data.response }]);
+            })
+            // setChatLog([...chatLog]); // Append user message to the chatLog array
         }
     };
 
