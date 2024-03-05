@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Doughnut } from "react-chartjs-2";
+import sourceData from "./data/sourceData.json";
 
 const BudgetTracker = () => {
     const [totalBalance, setTotalBalance] = useState(0);
@@ -53,13 +55,13 @@ const BudgetTracker = () => {
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel gradient-red" style={{ marginBottom: '20px' }}>
+                    <div className="card-panel gradient-blue" style={{ marginBottom: '20px' }}>
                         <h5 className="center white-text">Total Expenses</h5>
                         <p className="center white-text">{totalExpenses}</p>
                     </div>
                 </div>
                 <div className="col s4">
-                    <div className="card-panel gradient-purple" style={{ marginBottom: '20px' }}>
+                    <div className="card-panel gradient-teal" style={{ marginBottom: '20px' }}>
                         <h5 className="center white-text">Total Balance</h5>
                         <p className="center white-text">{totalBalance}</p>
                     </div>
@@ -147,7 +149,6 @@ const BudgetTracker = () => {
                         />
                     </div>
                 </div>
-
                 <div className="col s12 m6">
                     <div className="col s12">
                         <h5 className="center">Income List</h5>
@@ -196,4 +197,3 @@ const BudgetTracker = () => {
 };
 
 export default BudgetTracker;
-
