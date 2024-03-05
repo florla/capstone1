@@ -17,16 +17,16 @@ code {
   background: linear-gradient(to right, #4fc3f7, #81c784); 
 }
 
-.gradient-blue {
-  background: linear-gradient(to right, #4fc3f7, #bbdefb); 
-}
-
-.gradient-teal {
-  background: linear-gradient(to right,  #009688, #4db6ac); 
-}
-
 .gradient-green {
-  background: linear-gradient(to right, #81c784, #c8e6c9); 
+  background: linear-gradient(to right, #4CAF50, #C8E6C9); 
+}
+
+.gradient-red {
+  background: linear-gradient(to right, #F44336, #FFCDD2); 
+}
+
+.gradient-purple {
+  background: linear-gradient(to right, #9C27B0, #E1BEE7);
 }
 
 .message {
@@ -57,36 +57,3 @@ code {
 .message-text {
   margin: 0;
 }
-
-.App {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  gap: 2vw;
-  flex-wrap: wrap;
-}
-
-.dataCard {
-  border-radius: 0.5em;
-  padding: 1em;
-}
-
-.revenueCard {
-  width: 92%;
-  height: 20rem;
-}
-
-.customerCard {
-  width: 50%;
-  height: 20rem;
-}
-
-.categoryCard {
-  width: 40%;
-  height: 20rem;
-}
-
