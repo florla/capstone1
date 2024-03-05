@@ -18,7 +18,7 @@
 }
 
 .card .card-action a {
-    color: rgb(9, 170, 159) !important;
+    color: rgb(103, 9, 170) !important;
     font-weight: 700;
 }
 
@@ -66,11 +66,11 @@
     justify-content: center;
     list-style: none;
     padding: 0;
-    flex-wrap: wrap;
     margin-bottom: 5vh;
 }
 
 .pagination .waves-effect {
+
     margin-top: 5vh;
     margin-bottom: 1vh;
     padding: 4vh 1vw;
@@ -82,10 +82,9 @@
     justify-content: center;
     align-items: center; 
     text-decoration: none;
-    color: rgb(129, 131, 131) !important;
+    color: #9c9c9c !important;
     cursor: pointer;
     padding: 10px 20px;
-    margin: 4px; 
     border: .5px solid #ccc;
     transition: background-color 0.3s ease; 
 }
