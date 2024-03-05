@@ -2976,8 +2976,10 @@ ul.staggered-list li {
     }
 }
 
+/* adjust footer size */
 .page-footer {
-    padding-top: 20px;
+    padding-top: 4vh;
+    padding-bottom: 11vh;
     color: #fff;
     background-color: #ee6e73;
 }
@@ -3532,7 +3534,9 @@ table span.badge {
 .row {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; 
+     padding-top: 10vh; */
+
 }
 
 .row:after {
@@ -4788,7 +4792,7 @@ h4 {
 h5 {
     font-size: 1.64rem;
     line-height: 110%;
-    margin: 1.0933333333rem 0 0.656rem 0;
+    /* margin: 1.0933333333rem 0 0.656rem 0; */
 }
 
 h6 {
