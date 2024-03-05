@@ -16,7 +16,7 @@ router.get('/articles', async (req, res) => {
     }
 
     const encodedSearchTerms = encodeURIComponent(searchTerms.join(' OR '));
-    const apiKey = 'c59ed3ef4c2a4751b2a96bc25e0bae71'; 
+    const apiKey = process.env.NEWS_API_KEY;
     const articleUrl = 'https://newsapi.org/v2/everything';
     const url = `${articleUrl}?q=${encodedSearchTerms}&apiKey=${apiKey}`;
 
