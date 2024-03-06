@@ -14,7 +14,7 @@ const port = 5000;
 
 
 
-// sid.signature
+
 app.use(cors()); // Enable CORS for all requests
 app.use(express.json()); // Parse JSON bodies
 
@@ -23,6 +23,17 @@ app.use(express.json()); // Parse JSON bodies
 app.get('/', (req, res) => {
     res.send('Successful response.');
 });
+
+// app.get('/api/users', (req, results) => {
+//   const query = 'SELECT fullName, email, last_login FROM users'; // Removed password for security
+//   connection.query(query, (err, results) => {
+//       if (err) {
+//           console.error('Error fetching users:', err);
+//           return res.status(500).json({ message: 'An error occurred', error: err.message });
+//       }
+//       res.json(results);
+//   });
+// });
 
 app.post('/register', (req, res) => {
     const { fullName, email, password } = req.body;
@@ -38,9 +49,9 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { fullName, email, password } = req.body;
+  const {  email, password } = req.body;
   const query = `SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1`; // Limit 1 is used to stop the query after finding the first match
-  connection.query(query, [ fullName, email, password], (err, results) => {
+  connection.query(query, [  email, password], (err, results) => {
       if (err) {
           console.error('Error fetching user:', err);
           return res.status(500).json({ message: 'An error occurred', error: err.message });

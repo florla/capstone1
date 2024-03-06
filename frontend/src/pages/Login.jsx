@@ -51,6 +51,8 @@ function LoginPage() {
             if (data.token) {
                 // Save the token to local storage
                 localStorage.setItem('userToken', data.token);
+                localStorage.setItem('fullName', data.user.fullName);
+
                 // Redirect to profile page or load profile information
                 window.location.href = '/account'; // Adjust this URL to your profile page's route
             } else {

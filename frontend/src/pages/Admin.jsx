@@ -3,10 +3,18 @@ import React, { useState, useEffect } from 'react';
 const AdminPage = () => {
     const [users, setUsers] = useState([]);
 
-    // useEffect(() => {
-    // Fetch user data from the database or API
-
-
+    useEffect(() => {
+        // Update the endpoint as necessary based on your setup
+        fetch('/api/users')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => setUsers(data))
+            .catch(error => console.error('Error fetching users:', error));
+    }, []);
 
     return (
         <div className="container">
@@ -24,9 +32,9 @@ const AdminPage = () => {
                     {users.map(user => (
                         <tr key={user.id}>
                             <td>{user.id}</td>
-                            <td>{user.name}</td>
+                            <td>{user.fullName}</td>
                             <td>{user.email}</td>
-                            <td>{user.lastLoggedIn}</td>
+                            <td>{user.lastLoggedIn || 'N/A'}</td>
                         </tr>
                     ))}
                 </tbody>
