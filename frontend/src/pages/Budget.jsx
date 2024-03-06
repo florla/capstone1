@@ -146,7 +146,8 @@ const BudgetTracker = () => {
             </section>
             <section className="row">
                 <div className="col s12 m6">
-                    <div className="dataCard categoryCard">
+                    <div className="center">
+                        <div className="revenueCard">
                         <Doughnut
                             data={{
                                 labels: sourceData.map((data) => data.label),
@@ -186,6 +187,7 @@ const BudgetTracker = () => {
                                 },
                             }}
                         />
+                        </div>
                     </div>
                 </div>
                 <div className="col s12 m6">
@@ -233,7 +235,7 @@ const BudgetTracker = () => {
                     </div>
                 </div>
             </section>
-            <section className="row">
+            <section className="row center">
                 <button type="button" className="waves-effect waves-light btn" onClick={getTip}>Get Budget Tip</button>
             </section>
         </main>

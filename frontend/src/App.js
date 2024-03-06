@@ -10,6 +10,7 @@ import BudgetTracker from './pages/Budget';
 import ContactForm from './pages/Contact';
 import Articles from './pages/FinancialArticles';
 import Chatbot from './pages/Chatbot';
+import AdminPage from './pages/Admin';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contact" element={<ContactForm />} />
           <Route path="/FinancialArticles" element={<Articles />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
         <Footer />
       </Router>

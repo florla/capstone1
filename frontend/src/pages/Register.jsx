@@ -6,6 +6,7 @@ const RegisterPage = () => {
         email: '',
         password: '',
     });
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,7 +31,8 @@ const RegisterPage = () => {
             console.log('Success:', data.message);
             // Reset form data
             setFormData({ fullName: '', email: '', password: '' });
-            // Optionally, display a success message
+            // Set success message
+            setSuccessMessage('Registration successful!');
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -44,6 +46,11 @@ const RegisterPage = () => {
                 <div className="col s12 m6 offset-m3">
                     <div className="card-panel z-depth-5">
                         <h4 className="center">Register</h4>
+                        {successMessage && (
+                            <div className="success-message">
+                                {successMessage}
+                            </div>
+                        )}
                         <form className="col s12 m12" onSubmit={handleSubmit}>
                             <div className="row">
                                 <div className="input-field col s12 m12">
@@ -90,7 +97,7 @@ const RegisterPage = () => {
                                 <i className="material-icons right">send</i>
                             </button>
                         </form>
-                        <div className="center" style={{ marginTop: '20px' }}>
+                        <div className="center">
                             Already a user? <a href="/login">Sign In</a>
                         </div>
                     </div>
