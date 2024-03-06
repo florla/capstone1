@@ -2845,7 +2845,7 @@ video.responsive-video {
 
 .parallax-container {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     height: 500px;
 }
 
@@ -3492,7 +3492,7 @@ table span.badge {
 }
 
 .container {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     max-width: 1280px;
     width: 90%;
 }
@@ -3545,6 +3545,7 @@ table span.badge {
     clear: both;
 }
 
+/* contains wealthwave top info  */
 .row .col {
     float: left;
     -webkit-box-sizing: border-box;
@@ -4539,7 +4540,7 @@ nav .sidenav-trigger i {
 nav .brand-logo {
     position: absolute;
     color: #fff;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 2.1rem;
     padding: 0;
 }

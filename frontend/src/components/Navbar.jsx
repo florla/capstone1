@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/style.css";
 import "../styles/materialize.css";
 import "../styles/icons.css";
+import wavelogo from '../assets/wave-wealthlogo.png'; 
 
 // Define Navbar component
 const Navbar = () => {
@@ -38,7 +39,10 @@ const Navbar = () => {
             <nav className="gradient-nav-foot" role="navigation">
                 <div className="nav-wrapper container" ref={navRef}>
                     {/* Logo */}
-                    <a id="logo-container" href="/" className="brand-logo">budget</a>
+                    <a id="logo-container" href="/" className="brand-logo">
+                        <img src={wavelogo} alt="Wealthwave Logo" className="responsive-img" />
+                    WEALTHWAVE 
+                    </a>
                     {/* Links for desktop */}
                     <ul className="right hide-on-med-and-down">
                         <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>

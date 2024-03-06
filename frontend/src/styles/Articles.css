@@ -18,7 +18,7 @@
 }
 
 .card .card-action a {
-    color: rgb(103, 9, 170) !important;
+    color: #26a69a !important;
     font-weight: 700;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .btn {
-    background-color: #546e7a !important;
+    /* background-color: #546e7a !important; */
     color: white;
     margin-right: 2vw;
     height: auto;
