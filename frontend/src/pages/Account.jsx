@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut } from "react-chartjs-2";
 import sourceData from "./data/sourceData.json";
@@ -8,19 +9,25 @@ defaults.color = "black";
 
 const Account = () => {
     const [fullName, setFullName] = useState('');
+    const navigate = useNavigate(); 
+
+
+
 
     useEffect(() => {
-        // Fetch the fullName from local storage
-        const storedFullName = localStorage.getItem('userFullName');
-        if (storedFullName) {
-            setFullName(storedFullName);
-        }
+        const storedFullName = localStorage.getItem('fullName'); 
+        if (storedFullName) setFullName(storedFullName);
     }, []);
 
+    const handleLogout = () => {
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('fullName');
+        navigate('/login');
+    };
     return (
 
         <div>
-            <h4 className="center">User's Dashboard {fullName} </h4>
+            <h4 className="center">Hello, {fullName} </h4>
             <section className="row">
                 <h5 className="center">Summary</h5>
                 <div className="col s4" style={{ display: 'flex' }}>
@@ -122,7 +129,7 @@ const Account = () => {
                 </div>
             </div>
             <div className="center">
-                <button className="btn red">Logout</button>
+                <button onClick={handleLogout}className="btn red">Logout</button>
 
             </div>
         </div>

@@ -23,6 +23,11 @@ const Navbar = () => {
             setIsOpen(false);
         }
     };
+    const accountClick = () => {
+        if(!localStorage.getItem('userToken')){ 
+            window.location.href = '/login';
+            
+        }}   
 
     // Effect to add event listener for clicks outside of the mobile nav
     useEffect(() => {
@@ -45,7 +50,7 @@ const Navbar = () => {
                     </a>
                     {/* Links for desktop */}
                     <ul className="right hide-on-med-and-down">
-                        <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
+                        <li><Link to="/account" onClick={accountClick}>Account</Link></li>
                         <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
                         <li><Link to="/financialarticles" onClick={handleLinkClick}>Articles</Link></li>
                         <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
@@ -54,7 +59,7 @@ const Navbar = () => {
 
                     {/* Links for mobile */}
                     <ul id="nav-mobile" className={`sidenav ${isOpen ? "open" : ""}`} style={{ transform: isOpen ? "translateX(0%)" : "translateX(-105%)" }}>
-                        <li><Link to="/account" onClick={handleLinkClick}>Account</Link></li>
+                        <li><Link to="/account" onClick={accountClick}>Account</Link></li>
                         <li><Link to="/budget" onClick={handleLinkClick}>Budget</Link></li>
                         <li><Link to="/financialarticles" onClick={handleLinkClick}>Articles</Link></li>
                         <li><Link to="/contact" onClick={handleLinkClick}>Contact Us</Link></li>
