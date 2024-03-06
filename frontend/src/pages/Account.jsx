@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut } from "react-chartjs-2";
 import sourceData from "./data/sourceData.json";
@@ -7,13 +7,25 @@ import sourceData from "./data/sourceData.json";
 defaults.color = "black";
 
 const Account = () => {
+    const [fullName, setFullName] = useState('');
+
+    useEffect(() => {
+        // Fetch the fullName from local storage
+        const storedFullName = localStorage.getItem('userFullName');
+        if (storedFullName) {
+            setFullName(storedFullName);
+        }
+    }, []);
+
     return (
+
         <div>
-            <h4 className="center">User's Dashboard</h4>
+            <h4 className="center">User's Dashboard {fullName} </h4>
             <section className="row">
                 <h5 className="center">Summary</h5>
                 <div className="col s4" style={{ display: 'flex' }}>
                     <div className="card-panel gradient-green" style={{ marginBottom: '20px', flex: 1 }}>
+
                         <h5 className="center white-text">Total Income</h5>
                         <p className="center white-text">0</p>
                     </div>
@@ -31,6 +43,7 @@ const Account = () => {
                     </div>
                 </div>
             </section>
+
             <h5 className="center">Stats</h5>
             <div className="App">
                 <div className="dataCard customerCard">
@@ -60,10 +73,12 @@ const Account = () => {
                                 title: {
                                     text: "Revenue Source",
                                 },
+
                             },
                         }}
                     />
                 </div>
+
 
                 <div className="dataCard categoryCard">
                     <Doughnut
@@ -108,9 +123,11 @@ const Account = () => {
             </div>
             <div className="center">
                 <button className="btn red">Logout</button>
+
             </div>
         </div>
     );
 };
 
 export default Account;
+

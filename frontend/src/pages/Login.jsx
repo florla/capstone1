@@ -3,28 +3,59 @@ import React, { useState } from 'react';
 function LoginPage() {
     const [formData, setFormData] = useState({ email: '', password: '' });
     const [loginStatus, setLoginStatus] = useState('');
+    const [errors, setErrors] = useState({ email: '', password: '' });
+
+    const validateForm = () => {
+        let isValid = true;
+        let errors = {};
+
+        if (!formData.email) {
+            isValid = false;
+            errors.email = 'Email is required.';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            isValid = false;
+            errors.email = 'Email is invalid.';
+        }
+
+        if (!formData.password) {
+            isValid = false;
+            errors.password = 'Password is required.';
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        // Optionally reset individual error messages as the user types
+        if (!!errors[e.target.name]) {
+            setErrors({ ...errors, [e.target.name]: '' });
+        }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!validateForm()) {
+            return; // Stop the submission if the form is not valid
+        }
         
         fetch('http://localhost:5000/login', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Login failed');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Success:', data);
-            setLoginStatus('Logged in Successfully!');
+            if (data.token) {
+                // Save the token to local storage
+                localStorage.setItem('userToken', data.token);
+                // Redirect to profile page or load profile information
+                window.location.href = '/account'; // Adjust this URL to your profile page's route
+            } else {
+                throw new Error(data.message || 'Login failed');
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -52,6 +83,7 @@ function LoginPage() {
                                             onChange={handleChange}
                                             placeholder="Your Email"
                                         />
+                                        {errors.email && <span className="helper-text" style={{ color: 'red' }}>{errors.email}</span>}
                                     </div>
 
                                     <div className="input-field col s12 m12">
@@ -65,6 +97,7 @@ function LoginPage() {
                                             onChange={handleChange}
                                             placeholder="Password"
                                         />
+                                        {errors.password && <span className="helper-text" style={{ color: 'red' }}>{errors.password}</span>}
                                     </div>
                                 </div>
                                 <button className="btn waves-effect waves-light center-align" type="submit" name="action">
@@ -79,8 +112,10 @@ function LoginPage() {
                     </div>
                 </div>
             </div>
+            {loginStatus && <p className="center">{loginStatus}</p>}
         </div>
     );
 }
 
 export default LoginPage;
+
