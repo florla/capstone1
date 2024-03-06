@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import connection from './database.js'; 
-import session from 'express-session';
+
 import OpenAI from 'openai';
 
 import articlesRouter from './articles.js';
@@ -18,13 +18,6 @@ const port = 5000;
 app.use(cors()); // Enable CORS for all requests
 app.use(express.json()); // Parse JSON bodies
 
-//session middleware
-app.use(session({
-  secret: 'mysecretkey', // use a secret key for your session
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: !true } // set `true` if you're using HTTPS, otherwise leave it as `!true`
-}));
 
 
 app.get('/', (req, res) => {
@@ -45,18 +38,18 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  const query = `SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1`; // In production, use hashed passwords
-
-  connection.query(query, [email, password], (err, results) => {
+  const { fullName, email, password } = req.body;
+  const query = `SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1`; // Limit 1 is used to stop the query after finding the first match
+  connection.query(query, [ fullName, email, password], (err, results) => {
       if (err) {
           console.error('Error fetching user:', err);
           return res.status(500).json({ message: 'An error occurred', error: err.message });
       }
       if (results.length > 0) {
           // User exists
-          req.session.userId = results[0].id; // Set a session variable
-          res.json({ message: 'Logged in successfully', user: results[0] });
+          const user = results[0];
+          const token = `${user.id}.${new Date().getTime()}`; // This is a simplistic token for demonstration. Use JWT or similar in production.
+          res.json({ message: 'Logged in successfully', user: { id: user.id, fullName: user.fullName, email: user.email }, token });
       } else {
           // User not found or password doesn't match
           res.status(401).json({ message: 'Invalid credentials' });
@@ -65,7 +58,9 @@ app.post('/login', (req, res) => {
 });
 
 
-app.get('/profile', (req, res) => {
+
+
+app.get('/account', (req, res) => {
   if (!req.session.userId) {
       return res.status(403).send('You need to sign in');
   }

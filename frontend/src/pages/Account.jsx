@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut } from "react-chartjs-2";
 import sourceData from "./data/sourceData.json";
@@ -7,9 +7,21 @@ import sourceData from "./data/sourceData.json";
 defaults.color = "black";
 
 const Account = () => {
+    const [fullName, setFullName] = useState('');
+
+    useEffect(() => {
+        // Fetch the fullName from local storage
+        const storedFullName = localStorage.getItem('userFullName');
+        if (storedFullName) {
+            setFullName(storedFullName);
+        }
+    }, []);
+
     return (
         <div className="App">
+            <h2>Welcome, {fullName}</h2> {/* Display the user's fullName */}
             <section className="row">
+                {/* Your existing content for cards */}
                 <div className="col s4">
                     <div className="card-panel gradient-green" style={{ marginBottom: '20px' }}>
                         <h5 className="center white-text">Total Income</h5>
@@ -31,6 +43,7 @@ const Account = () => {
             </section>
 
             <div className="dataCard customerCard">
+                {/* Your existing Bar chart code */}
                 <Bar
                     data={{
                         labels: sourceData.map((data) => data.label),
@@ -55,6 +68,7 @@ const Account = () => {
                     options={{
                         plugins: {
                             title: {
+                                display: true,
                                 text: "Revenue Source",
                             },
                         },
@@ -63,6 +77,7 @@ const Account = () => {
             </div>
 
             <div className="dataCard categoryCard">
+                {/* Your existing Doughnut chart code */}
                 <Doughnut
                     data={{
                         labels: sourceData.map((data) => data.label),
@@ -96,6 +111,7 @@ const Account = () => {
                     options={{
                         plugins: {
                             title: {
+                                display: true,
                                 text: "Revenue Sources",
                             },
                         },
@@ -107,3 +123,4 @@ const Account = () => {
 };
 
 export default Account;
+
