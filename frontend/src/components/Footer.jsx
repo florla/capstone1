@@ -6,7 +6,7 @@ export default function Footer({ className }) {
     // Return JSX for the footer
     return (
         <footer className={`page-footer teal gradient-nav-foot ${className}`}>
-            <div className="container">
+            <div className="">
                 <div className="row">
                     <div className="col l6 s12">
                         {/* Paragraph describing the app */}

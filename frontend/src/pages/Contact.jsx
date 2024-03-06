@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 function ContactForm() {
     return (
@@ -39,13 +41,25 @@ function ContactForm() {
                     </form>
                     <div className="col s12 m4">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        Feel free to reach out to us with any questions, comments, or inquiries you may have. We're here to help!
                         </p>
-                        <ul className="share-buttons">
-                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" target="_blank" title="Share on Facebook"><i className="fab fa-facebook purple-text text-lighten-1"></i></a></li>
-                            <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet"><i className="fab fa-twitter blue-text text-lighten-1"></i></a></li>
-                            <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+"><i className="fab fa-google-plus red-text text-lighten-1"></i></a></li>
-                        </ul>
+                        <div className="row">
+                            <div className="col s4">
+                                <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+                                    <FontAwesomeIcon icon={faLinkedin} className="blue-text text-lighten-1 fa-3x" />
+                                </a>
+                            </div>
+                            <div className="col s4">
+                                <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                                    <FontAwesomeIcon icon={faFacebook} className="blue-text text-lighten-1 fa-3x" />
+                                </a>
+                            </div>
+                            <div className="col s4">
+                                <a href="https://twitter.com" target="_blank" title="Twitter">
+                                    <FontAwesomeIcon icon={faTwitter} className="blue-text text-lighten-1 fa-3x" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
