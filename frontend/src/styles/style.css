@@ -5,8 +5,6 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    
-   
 }
 
 
@@ -97,3 +95,144 @@ footer {
 .results{
     min-height:120vh;
 }
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* logo image  */
+.brand-logo img {
+    width: 70px; 
+    height: auto; 
+}
+
+.brand-logo span {
+    font-size: 1.2em;
+    font-weight: bold; 
+}
+
+.responsive-img2 { 
+    height: auto; 
+    display: block;
+    width: 30vw;
+    margin: 0 auto;
+}
+
+/* .responsive-img2 { 
+    height: auto; 
+    display: block;
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    position: absolute; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+} */
+
+/* .container-card{
+    margin-top: 15vh !important;
+} */
+
+/* ABOUT US SECTION  */
+.container.valign-wrapper {
+    margin-top: 18vh; 
+    margin-bottom: 3vh;
+}
+
+.section-container {
+    background-color: #26a69924; 
+    padding: 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 15vh;
+  }
+
+
+  /*  wave animation effect */
+.landing-animation {
+    background: linear-gradient(
+      72.12deg,
+      #fbdbe3 0%,
+      #c7ecf5  34.72%,
+      #d0dee8 75.75%,
+      #60e4e2 100%
+    );
+    height: 90vh;
+    overflow: hidden;
+    text-align:center;
+    font-size:28px;
+  }
+  
+  .svg-waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 180px;
+    }
+    
+    @media (max-width: 767px) {
+      .svg-waves {
+        height: 80px;
+      }
+    }
+    
+  .svg-waves__parallax > use {
+      -webkit-animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+              animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    }
+    
+    .svg-waves__parallax > use:nth-child(1) {
+      -webkit-animation-delay: -2s;
+              animation-delay: -2s;
+      -webkit-animation-duration: 7s;
+              animation-duration: 7s;
+      fill: rgba(255, 255, 255, 0.7);
+    }
+    
+    .svg-waves__parallax > use:nth-child(2) {
+      -webkit-animation-delay: -3s;
+              animation-delay: -3s;
+      -webkit-animation-duration: 10s;
+              animation-duration: 10s;
+      fill: rgba(255, 255, 255, 0.5);
+    }
+    
+    .svg-waves__parallax > use:nth-child(3) {
+      -webkit-animation-delay: -4s;
+              animation-delay: -4s;
+      -webkit-animation-duration: 13s;
+              animation-duration: 13s;
+      fill: rgba(255, 255, 255, 0.3);
+    }
+    
+    .svg-waves__parallax > use:nth-child(4) {
+      -webkit-animation-delay: -5s;
+              animation-delay: -5s;
+      -webkit-animation-duration: 20s;
+              animation-duration: 20s;
+      fill: white;
+    }
+    
+    @-webkit-keyframes move-forever {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+    
+    @keyframes move-forever {
+      0% {
+        transform: translate3d(-90px, 0, 0);
+      }
+      100% {
+        transform: translate3d(85px, 0, 0);
+      }
+    }
+    
