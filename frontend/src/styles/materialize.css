@@ -2138,9 +2138,11 @@
     background-color: #FFFFFF !important;
 }
 
+/* BUDGET COLOR TEXT **** */
 .white-text {
-    color: #FFFFFF !important;
-}
+    font-weight: 700;
+    font-size: 1.9em;
+    color: #152373f5 !important;}
 
 .transparent {
     background-color: transparent !important;
@@ -2766,7 +2768,6 @@ video.responsive-video {
     display: inline-block;
     font-size: 1.2rem;
     padding: 0 10px;
-    line-height: 30px;
 }
 
 .pagination li.active a {
@@ -3638,6 +3639,9 @@ table span.badge {
     margin-bottom: 6vh;
     background-color: rgba(242, 242, 242, 0.5);
 }
+
+
+
 
 #budgetlist{
     margin-top: 2vh;
