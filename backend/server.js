@@ -24,16 +24,16 @@ app.get('/', (req, res) => {
     res.send('Successful response.');
 });
 
-// app.get('/api/users', (req, results) => {
-//   const query = 'SELECT fullName, email, last_login FROM users'; // Removed password for security
-//   connection.query(query, (err, results) => {
-//       if (err) {
-//           console.error('Error fetching users:', err);
-//           return res.status(500).json({ message: 'An error occurred', error: err.message });
-//       }
-//       res.json(results);
-//   });
-// });
+app.get('/api/users', (req, res) => {
+  const query = 'SELECT id, fullName, email, last_login FROM users'; // Removed password for security
+  connection.query(query, (err, results) => {
+      if (err) {
+          console.error('Error fetching users:', err);
+          return res.status(500).json({ message: 'An error occurred', error: err.message });
+      }
+      res.json(results);
+  });
+});
 
 app.post('/register', (req, res) => {
     const { fullName, email, password } = req.body;
@@ -60,7 +60,8 @@ app.post('/login', (req, res) => {
           // User exists
           const user = results[0];
           const token = `${user.id}.${new Date().getTime()}`; // This is a simplistic token for demonstration. Use JWT or similar in production.
-          res.json({ message: 'Logged in successfully', user: { id: user.id, fullName: user.fullName, email: user.email }, token });
+          
+          res.json({ message: 'Logged in successfully', user: { id: user.id, fullName: user.fullName, email: user.email ,admin: user.admin_permission }, token });
       } else {
           // User not found or password doesn't match
           res.status(401).json({ message: 'Invalid credentials' });
