@@ -5,6 +5,9 @@ const AdminPage = () => {
 
     useEffect(() => {
         // Update the endpoint as necessary based on your setup
+        if(!localStorage.getItem('superadmin')){
+            window.location.href = '/';
+        }
         fetch('/api/users')
             .then(response => {
                 if (!response.ok) {
@@ -34,7 +37,8 @@ const AdminPage = () => {
                             <td>{user.id}</td>
                             <td>{user.fullName}</td>
                             <td>{user.email}</td>
-                            <td>{user.lastLoggedIn || 'N/A'}</td>
+                            <td>{user.last_login || 'N/A'}</td>
+                            <button className='waves-effect waves-light btn'>DELETE</button>
                         </tr>
                     ))}
                 </tbody>

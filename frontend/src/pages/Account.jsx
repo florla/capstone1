@@ -9,6 +9,7 @@ defaults.color = "black";
 
 const Account = () => {
     const [fullName, setFullName] = useState('');
+    
     const navigate = useNavigate(); 
 
 
@@ -22,6 +23,7 @@ const Account = () => {
     const handleLogout = () => {
         localStorage.removeItem('userToken');
         localStorage.removeItem('fullName');
+        localStorage.removeItem('superadmin');
         navigate('/login');
     };
     return (
