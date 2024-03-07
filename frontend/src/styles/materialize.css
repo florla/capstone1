@@ -3054,6 +3054,7 @@ th {
     text-align: left;
     vertical-align: middle;
     border-radius: 2px;
+    bottom: 4vh;
 }
 
 @media only screen and (max-width: 992px) {
@@ -3536,7 +3537,6 @@ table span.badge {
     margin-right: auto;
     /* margin-bottom: 20px; 
      padding-top: 10vh; */
-
 }
 
 .row:after {
@@ -3594,18 +3594,59 @@ table span.badge {
     right: auto;
 }
 
-.row .col.s6 {
+/* green container budget page */
+/* .row .col.s6 {
     width: 50%;
     margin-left: auto;
-    left: auto;
-    right: auto;
-}
+    height: 65vh;
+    margin-top: 1vh;
+    padding: 34px;
+    background-color: #d6e0e045;
+} */
+
+/* Target the income & expense form */
+#income-form,  #expense-form{
+    width: 50%;
+    margin-left: auto;
+    height: 65vh;
+    margin-top: 1vh;
+    padding: 34px;
+    background-color: #d6e0e045;
+  }
+
+  /* income list & expense  */
+  .row.forms-container > .col.s12.m6 {
+    padding: 40px;
+  }
 
 .row .col.s7 {
     width: 58.3333333333%;
     margin-left: auto;
     left: auto;
     right: auto;
+}
+
+/* DELETE button */
+#root > div > main > section:nth-child(4) > div > div:nth-child(1) > table > tbody > tr > button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* income list and expense list // LIST   */
+.col.s12.m6{
+    margin-top: 2vh;
+    margin-bottom: 6vh;
+    background-color: rgba(242, 242, 242, 0.5);
+}
+
+#budgetlist{
+    margin-top: 2vh;
+    background-color: rgba(242, 242, 242, 0.5);
+}
+
+#resultslist {
+    margin-top: 2vh;
+    background-color: rgba(242, 242, 242, 0.5);
 }
 
 .row .col.s8 {
@@ -3636,11 +3677,21 @@ table span.badge {
     right: auto;
 }
 
-.row .col.s12 {
+/* NEED TO FIX THIS  */
+/* .row .col.s12:nth-child(5) {
     width: 100%;
+    margin-top: 4vh;
     margin-left: auto;
+    height: 3vh;
     left: auto;
     right: auto;
+    padding: 34px;
+} */
+
+.row .col.s12{
+    width: 100%;
+    margin-top: 4vh;
+    margin-left: auto;
 }
 
 .row .col.offset-s1 {
@@ -5000,8 +5051,9 @@ small {
 }
 
 .card .card-title {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 600;
+    color: #004d40;
 }
 
 .card .card-title.activator {
@@ -5135,12 +5187,13 @@ small {
 }
 
 .card .card-image .card-title {
-    color: #fff;
+    color: #004d40;
     position: absolute;
     bottom: 0;
     left: 0;
     max-width: 100%;
     padding: 24px;
+    font-weight: 500;
 }
 
 .card .card-content {
