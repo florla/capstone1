@@ -8,6 +8,7 @@ defaults.color = "black";
 
 const Account = () => {
     const [fullName, setFullName] = useState('');
+    const [expenseGoal, setExpenseGoal] = useState('');
 
     useEffect(() => {
         // Fetch the fullName from local storage
@@ -17,15 +18,18 @@ const Account = () => {
         }
     }, []);
 
-    return (
+    const handleExpenseGoalSubmit = () => {
+        // Handle submission of expense goal
+        console.log('Expense Goal submitted:', expenseGoal);
+    };
 
+    return (
         <div>
-            <h4 className="center">User's Dashboard {fullName} </h4>
+            <h4 className="center">User's Dashboard {fullName}</h4>
             <section className="row">
                 <h5 className="center">Summary</h5>
                 <div className="col s4" style={{ display: 'flex' }}>
                     <div className="card-panel gradient-green" style={{ marginBottom: '20px', flex: 1 }}>
-
                         <h5 className="center white-text">Total Income</h5>
                         <p className="center white-text">0</p>
                     </div>
@@ -73,12 +77,20 @@ const Account = () => {
                                 title: {
                                     text: "Revenue Source",
                                 },
-
                             },
                         }}
                     />
+                    {/* Input field and submit button for expense goal */}
+                {/* <div className="expenseGoalInput"> */}
+                    <input
+                        type="text"
+                        placeholder="Enter Expense Goal"
+                        value={expenseGoal}
+                        onChange={(e) => setExpenseGoal(e.target.value)}
+                    />
+                    <button className="btn" onClick={handleExpenseGoalSubmit}>Submit</button>
+                {/* </div> */}
                 </div>
-
 
                 <div className="dataCard categoryCard">
                     <Doughnut
@@ -121,13 +133,12 @@ const Account = () => {
                     />
                 </div>
             </div>
-            <div className="center">
+            <div className="center" >
                 <button className="btn red">Logout</button>
-
             </div>
         </div>
+        
     );
 };
 
 export default Account;
-
