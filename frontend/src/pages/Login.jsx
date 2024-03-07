@@ -22,6 +22,7 @@ function LoginPage() {
             errors.password = 'Password is required.';
         }
 
+      
         setErrors(errors);
         return isValid;
     };
@@ -51,8 +52,18 @@ function LoginPage() {
             if (data.token) {
                 // Save the token to local storage
                 localStorage.setItem('userToken', data.token);
+                localStorage.setItem('fullName', data.user.fullName);
+
+
                 // Redirect to profile page or load profile information
-                window.location.href = '/account'; // Adjust this URL to your profile page's route
+                
+                if(data.user.admin === 1){
+                    localStorage.setItem('superadmin', data.user.admin);
+                    window.location.href = '/admin';
+                }else {
+                    window.location.href = '/account';
+                }
+                
             } else {
                 throw new Error(data.message || 'Login failed');
             }
