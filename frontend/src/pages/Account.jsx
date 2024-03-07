@@ -11,13 +11,53 @@ const Account = () => {
     const [fullName, setFullName] = useState('');
     const navigate = useNavigate(); 
 
+    if (!localStorage.getItem('totalIncome')|| isNaN(localStorage.getItem('totalIncome'))) {
+        localStorage.setItem('totalIncome', JSON.stringify(0));
+    }
+    if (!localStorage.getItem('totalExpenses')|| isNaN(localStorage.getItem('totalExpenses'))) {
+        localStorage.setItem('totalExpenses', JSON.stringify(0));
+    }
+    if(!localStorage.getItem('totalBalance')|| isNaN(localStorage.getItem('totalBalance'))){
+        localStorage.setItem('totalBalance', JSON.stringify(0));
+    }
+    if (!localStorage.getItem('incomes')) {
+        localStorage.setItem('incomes', JSON.stringify([]));
+    }
+    if (!localStorage.getItem('expenses')) {
+        localStorage.setItem('expenses', JSON.stringify([]));
+    }
+    if(!localStorage.getItem('budgetList')){
+        localStorage.setItem('budgetList', JSON.stringify([
+            {category: 'Balance', amount: 0},
+            {category: 'Food', amount: 0},
+            {category: 'Transportation', amount: 0},
+            {category: 'Housing', amount: 0},
+            {category: 'Utilities', amount: 0},
+            {category: 'Entertainment', amount: 0},
+            {category: 'Healthcare', amount: 0},
+            {category: 'Other', amount: 0},
+        ]));
+    }
+    const totalBalance = localStorage.getItem('totalBalance');
+    const totalIncome = localStorage.getItem('totalIncome');
+    const totalExpenses = localStorage.getItem('totalExpenses');
+    const incomeList = JSON.parse(localStorage.getItem('incomes'));
+    const expenseList = JSON.parse(localStorage.getItem('expenses'));
+    const budgetList = JSON.parse(localStorage.getItem('budgetList'));
+    const [balanceColor, setBalanceColor] = useState('rgba(79, 195, 247, 0.8)');
+
 
 
 
     useEffect(() => {
         const storedFullName = localStorage.getItem('fullName'); 
         if (storedFullName) setFullName(storedFullName);
-    }, []);
+        if(totalBalance < 0){
+            setBalanceColor('rgba(244, 67, 54, 0.8)');
+        } else {
+            setBalanceColor('rgba(79, 195, 247, 0.8)');
+        }
+    }, [totalBalance]);
 
     const handleLogout = () => {
         localStorage.removeItem('userToken');
@@ -34,19 +74,19 @@ const Account = () => {
                     <div className="card-panel gradient-green" style={{ marginBottom: '20px', flex: 1 }}>
 
                         <h5 className="center white-text">Total Income</h5>
-                        <p className="center white-text">0</p>
+                        <p className="center white-text">${totalIncome}</p>
                     </div>
                 </div>
                 <div className="col s4" style={{ display: 'flex' }}>
                     <div className="card-panel gradient-blue" style={{ marginBottom: '20px', flex: 1 }}>
                         <h5 className="center white-text">Total Expenses</h5>
-                        <p className="center white-text">0</p>
+                        <p className="center white-text">${totalExpenses}</p>
                     </div>
                 </div>
                 <div className="col s4" style={{ display: 'flex' }}>
                     <div className="card-panel gradient-teal" style={{ marginBottom: '20px', flex: 1 }}>
                         <h5 className="center white-text">Total Balance</h5>
-                        <p className="center white-text">0</p>
+                        <p className="center white-text">${totalBalance}</p>
                     </div>
                 </div>
             </section>
@@ -56,13 +96,13 @@ const Account = () => {
                 <div className="dataCard customerCard">
                     <Bar
                         data={{
-                            labels: sourceData.map((data) => data.label),
+                            labels: budgetList.map((data) => data.category),
                             datasets: [
                                 {
-                                    label: "Count",
-                                    data: sourceData.map((data) => data.value),
+                                    label: "Amount",
+                                    data: budgetList.map((data) => data.amount),
                                     backgroundColor: [
-                                        "rgba(79, 195, 247, 0.8)",
+                                        balanceColor,
                                         "rgba(187, 222, 251, 0.8)",
                                         "rgba(0, 150, 136, 0.8)",
                                         "rgba(77, 182, 172, 0.8)",
@@ -90,13 +130,13 @@ const Account = () => {
                 <div className="dataCard categoryCard">
                     <Doughnut
                         data={{
-                            labels: sourceData.map((data) => data.label),
+                            labels: budgetList.map((data) => data.category),
                             datasets: [
                                 {
-                                    label: "Count",
-                                    data: sourceData.map((data) => data.value),
+                                    label: "Amount",
+                                    data: budgetList.map((data) => data.amount),
                                     backgroundColor: [
-                                        "rgba(79, 195, 247, 0.8)",
+                                        balanceColor,
                                         "rgba(187, 222, 251, 0.8)",
                                         "rgba(0, 150, 136, 0.8)",
                                         "rgba(77, 182, 172, 0.8)",
@@ -106,7 +146,7 @@ const Account = () => {
                                         "rgba(200, 230, 201, 0.8)",
                                     ],
                                     borderColor: [
-                                        "rgba(79, 195, 247, 1)",
+                                        balanceColor,
                                         "rgba(187, 222, 251, 1)",
                                         "rgba(0, 150, 136, 1)",
                                         "rgba(77, 182, 172, 1)",
