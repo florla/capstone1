@@ -37,15 +37,27 @@ app.get('/api/users', (req, res) => {
 
 app.post('/register', (req, res) => {
     const { fullName, email, password } = req.body;
-    const query = `INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)`;
-
-    connection.query(query, [fullName, email, password], (err, results) => {
+    var query = `SELECT * FROM users WHERE email = ?`;
+    if(connection.query(query, [email], (err, results) => {
         if (err) {
-            console.error('Error inserting data:', err);
+            console.error('Error fetching user:', err);
             return res.status(500).json({ message: 'An error occurred', error: err.message });
         }
-        res.json({ message: 'Registered Successfully!' });
-    });
+        if (results.length > 0) {
+            // User exists
+            res.json({ invalid: 'Email already used' });
+        } else {
+            // User not found
+            query = `INSERT INTO users (fullName, email, password) VALUES (?, ?, ?)`;
+            connection.query(query, [fullName, email, password], (err, results) => {
+                if (err) {
+                    console.error('Error inserting data:', err);
+                    return res.status(500).json({ message: 'An error occurred', error: err.message });
+                }
+                res.json({ message: 'Registered Successfully!' });
+            });
+        }
+    }));
 });
 
 app.post('/login', (req, res) => {
@@ -59,8 +71,15 @@ app.post('/login', (req, res) => {
       if (results.length > 0) {
           // User exists
           const user = results[0];
-          const token = `${user.id}.${new Date().getTime()}`; // This is a simplistic token for demonstration. Use JWT or similar in production.
-          
+          const token = `${user.id}.${new Date()}`; // This is a simplistic token for demonstration. Use JWT or similar in production.
+          const date = new Date().toJSON().slice(0, 10)
+          let dateQuery = `UPDATE users SET last_login = ? WHERE id = ?`;
+          connection.query(dateQuery, [date, user.id], (err, results) => {
+              if (err) {
+                  console.error('Error updating last login:', err);
+                  return res.status(500).json({ message: 'An error occurred', error: err.message });
+              }
+          });
           res.json({ message: 'Logged in successfully', user: { id: user.id, fullName: user.fullName, email: user.email ,admin: user.admin_permission }, token });
       } else {
           // User not found or password doesn't match
@@ -89,6 +108,18 @@ app.get('/account', (req, res) => {
           res.status(404).send('Profile not found');
       }
   });
+});
+
+app.post('/delete', (req, res) => {
+  const query = `DELETE FROM users WHERE id = ?`;
+  connection.query(query, [req.body.id], (err, results) => {
+      if (err) {
+          console.error('Error deleting user:', err);
+          return res.status(500).json({ message: 'An error occurred', error: err.message });
+      }
+      res.json({ message: 'User deleted successfully' });
+  }
+  );
 });
 
 

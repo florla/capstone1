@@ -28,11 +28,18 @@ const RegisterPage = () => {
             return response.json();
         })
         .then(data => {
+            if(data.invalid){
+                return setSuccessMessage(data.invalid);
+            }
             console.log('Success:', data.message);
             // Reset form data
             setFormData({ fullName: '', email: '', password: '' });
             // Set success message
-            setSuccessMessage('Registration successful!');
+            setSuccessMessage('Registration successful! Redirecting to login page...');
+            setTimeout(() => {
+                // Redirect to login page
+                window.location.href = '/login';
+            }, 3000);
         })
         .catch((error) => {
             console.error('Error:', error);

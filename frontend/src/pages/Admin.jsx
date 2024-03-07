@@ -3,6 +3,23 @@ import React, { useState, useEffect } from 'react';
 const AdminPage = () => {
     const [users, setUsers] = useState([]);
 
+    const deleteUser = (id) => {
+        fetch(`http://localhost:5000/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({id: id}),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            setUsers(users.filter(user => user.id !== id));
+            return response.json();
+        })}
+        
+
     useEffect(() => {
         // Update the endpoint as necessary based on your setup
         if(!localStorage.getItem('superadmin')){
@@ -37,8 +54,8 @@ const AdminPage = () => {
                             <td>{user.id}</td>
                             <td>{user.fullName}</td>
                             <td>{user.email}</td>
-                            <td>{user.last_login || 'N/A'}</td>
-                            <button className='waves-effect waves-light btn'>DELETE</button>
+                            <td>{((user.last_login)) || 'N/A'}</td>
+                            <button className='waves-effect waves-light btn' onClick={() => deleteUser(user.id)}>DELETE</button>
                         </tr>
                     ))}
                 </tbody>
