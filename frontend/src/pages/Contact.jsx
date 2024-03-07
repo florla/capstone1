@@ -7,7 +7,7 @@ function ContactForm() {
         <div className="container section scrollspy" id="contactus">
             <div className="section">
                 <h2>Contact Us</h2>
-                <div className="row">
+                <div className="row custom-row-background">
                     <form className="col s8">
                         <div className="row">
                             <div className="input-field col s6">

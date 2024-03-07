@@ -67,22 +67,24 @@ function App() {
                             <div className="col s12 m4">
                                 <div className="icon-block">
                                     <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>attach_money</i></h2>
-                                    <h5 className="center">Budgeting Tools</h5>
-                                    <p className="light">Our website offers built-in budgeting functionality to help you manage your finances effectively. With our intuitive tools, you can track your income, expenses, and savings goals with ease. </p>
+                                    <h5 className="center">Budgeting <br></br>Tools
+                                    </h5>
+                                    <p className="light">
+                                        Our website offers built-in budgeting functionality to help you manage your finances effectively. With our intuitive tools, you can track your income, expenses, and savings goals with ease. </p>
                                 </div>
                             </div>
                             <div className="col s12 m4">
                                 <div className="icon-block">
-                                    <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>shopping_cart</i></h2>
+                                    <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>library_books</i></h2>
                                     <h5 className="center">Financial Wellness Articles</h5>
                                     <p className="light">Explore our collection of articles and resources focused on financial wellness. From saving strategies to investment tips, we provide valuable insights to help you make informed financial decisions </p>
                                 </div>
                             </div>
                             <div className="col s12 m4">
                                 <div className="icon-block">
-                                    <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>account_balance</i></h2>
+                                    <h2 className="center"><i className="material-icons" style={{ color: '#333' }}>chat_bubble_outline</i></h2>
                                     <h5 className="center">Interactive Chatbox</h5>
-                                    <p className="light">Have questions about your finances? Our interactive chatbox is available 24/7 to provide quick answers and tips. Chat with our virtual assistant to get instant pointers on budgeting, saving, and more.</p>
+                                    <p className="light"><br></br>Have questions about your finances? Our interactive chatbox is available 24/7 to provide quick answers and tips. Chat with our virtual assistant to get instant pointers on budgeting, saving, and more.</p>
                                 </div>
                             </div>
                         </div>

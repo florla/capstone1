@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Doughnut } from "react-chartjs-2";
 // import sourceData from "./data/sourceData.json";
@@ -148,8 +149,8 @@ const BudgetTracker = () => {
                     </div>
                 </div>
             </section>
-            <section className="row forms-container">
-                <form className="col s6" id="income-form">
+<section className="row forms-container" id="forms-section">
+                <form className="col s6 budget-form" id="income-form">
                     <h5 className="center">Add Income</h5>
                     <div className="input-field">
                         <input type="text" id="income-description" placeholder='Income Description' value={incomeDescription} onChange={(e) => setIncomeDescription(e.target.value)} required />
@@ -159,7 +160,7 @@ const BudgetTracker = () => {
                     </div>
                     <button type="button" className="waves-effect waves-light btn" onClick={addIncome}>Add Income</button>
                 </form>
-                <form className="col s6" id="expense-form">
+                <form className="col s6 budget-form" id="expense-form">
                     <h5 className="center">Add Expense</h5>
                     <div className="input-field">
                         <input type="text" id="expense-description" placeholder='Expense Description' value={expenseDescription} onChange={(e) => setExpenseDescription(e.target.value)} required />
@@ -183,7 +184,7 @@ const BudgetTracker = () => {
                 </form>
             </section>
             <section className="row">
-                <div className="row forms-container">
+                <div className="row forms-container" id="budgetlist">
                     <div className="col s12 m6">
                         <h5 className="center">Income List</h5>
                         <table className="striped">
@@ -207,6 +208,8 @@ const BudgetTracker = () => {
                     <div className="col s12 m6">
                         <h5 className="center">Expense List</h5>
                         <table className="striped">
+                       
+
                             <thead>
                                 <tr>
                                     <th>Description</th>
@@ -232,7 +235,7 @@ const BudgetTracker = () => {
                 <div className="col s12 m6">
                     <div className="center">
                         <h5>Budget Graph</h5>
-                        <div className="revenueCard">
+                        <div className="revenueCard" style={{ margin: '0 auto', width: 'fit-content' }}>
                         <Doughnut
                             data={{
                                 labels: budgetList.map((data) => data.category),
@@ -242,23 +245,23 @@ const BudgetTracker = () => {
                                         data: budgetList.map((data) => data.amount),
                                         backgroundColor: [
                                             balanceColor,
-                                            "rgba(187, 222, 251, 0.8)",
-                                            "rgba(0, 150, 136, 0.8)",
-                                            "rgba(77, 182, 172, 0.8)",
-                                            "rgba(129, 199, 132, 0.8)",
-                                            "rgba(200, 230, 201, 0.8)",
-                                            "rgba(129, 199, 132, 0.8)",
-                                            "rgba(200, 230, 201, 0.8)",
+                                            "rgba(315, 123, 153, 0.8)",  
+                                            "rgba(255, 229, 204, 0.8)",  
+                                            "rgba(255, 255, 204, 0.8)",  
+                                            "rgba(204, 255, 204, 0.8)", 
+                                            "rgba(204, 255, 255, 0.8)",  
+                                            "rgba(204, 204, 255, 0.8)",
+                                            "rgba(255, 204, 255, 0.8)", 
                                         ],
                                         borderColor: [
                                             balanceColor,
-                                            "rgba(187, 222, 251, 1)",
-                                            "rgba(0, 150, 136, 1)",
-                                            "rgba(77, 182, 172, 1)",
-                                            "rgba(129, 199, 132, 1)",
-                                            "rgba(200, 230, 201, 1)",
-                                            "rgba(129, 199, 132, 1)",
-                                            "rgba(200, 230, 201, 1)",
+                                            "rgba(315, 123, 153, 0.8)",  
+                                            "rgba(255, 229, 204, 0.8)",  
+                                            "rgba(255, 255, 204, 0.8)",  
+                                            "rgba(204, 255, 204, 0.8)", 
+                                            "rgba(204, 255, 255, 0.8)",  
+                                            "rgba(204, 204, 255, 0.8)",
+                                            "rgba(255, 204, 255, 0.8)", 
                                         ],
                                         borderWidth: 1,
                                     },
