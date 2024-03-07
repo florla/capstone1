@@ -42,18 +42,18 @@ const Articles = () => {
                 <button className="waves-effect waves-light btn" onClick={() => handleCategorySelect('retirement savings')}>Retirement Savings</button>
                 <button className="waves-effect waves-light btn" onClick={() => handleCategorySelect('financial budgeting')}>Financial Budgeting</button>
                 <button className="waves-effect waves-light btn" onClick={() => handleCategorySelect('emergency savings')}>Emergency Savings</button>
-                <button className="waves-effect waves-light btn" onClick={() => handleCategorySelect('credit score')}>Credit Score</button>
+                <button className="waves-effect waves-light btn" onClick={() => handleCategorySelect('credit card finance')}>Credit Card</button>
             </div>
 
             <div className="row">
                 {currentArticles.map((article, index) => (
                     <div className="col s12 m6 l4" key={index}>
-                        <div className="card">
+                        <div className="card" id="article-row">
                             <div className="card-image">
                                 <img src={article.urlToImage || placeholderImage} alt={article.title} />
-                                <span className="card-title">{article.title}</span>
                             </div>
                             <div className="card-content">
+                            <span className="card-title">{article.title}</span>
                                 <p>{article.description}</p>
                                 <p>Author: {article.author}</p>
                                 <p>Published At: {new Date(article.publishedAt).toLocaleString()}</p>
