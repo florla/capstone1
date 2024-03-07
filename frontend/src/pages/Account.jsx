@@ -9,9 +9,7 @@ defaults.color = "black";
 
 const Account = () => {
     const [fullName, setFullName] = useState('');
-
-    const [expenseGoal, setExpenseGoal] = useState('');
-
+    
     const navigate = useNavigate(); 
 
     if (!localStorage.getItem('totalIncome')|| isNaN(localStorage.getItem('totalIncome'))) {
@@ -52,7 +50,6 @@ const Account = () => {
 
 
 
-
     useEffect(() => {
         const storedFullName = localStorage.getItem('fullName'); 
         if (storedFullName) setFullName(storedFullName);
@@ -63,12 +60,6 @@ const Account = () => {
         }
     }, [totalBalance]);
 
-
-    const handleExpenseGoalSubmit = () => {
-        // Handle submission of expense goal
-        console.log('Expense Goal submitted:', expenseGoal);
-    };
-
     const handleLogout = () => {
         localStorage.removeItem('userToken');
         localStorage.removeItem('fullName');
@@ -77,16 +68,13 @@ const Account = () => {
     };
     return (
 
-
-    return (
         <div>
-
             <h4 className="center">Hello, {fullName} </h4>
-
             <section className="row">
                 <h5 className="center">Summary</h5>
                 <div className="col s4" style={{ display: 'flex' }}>
                     <div className="card-panel gradient-green" style={{ marginBottom: '20px', flex: 1 }}>
+
                         <h5 className="center white-text">Total Income</h5>
                         <p className="center white-text">${totalIncome}</p>
                     </div>
@@ -134,20 +122,12 @@ const Account = () => {
                                 title: {
                                     text: "Revenue Source",
                                 },
+
                             },
                         }}
                     />
-                    {/* Input field and submit button for expense goal */}
-                {/* <div className="expenseGoalInput"> */}
-                    <input
-                        type="text"
-                        placeholder="Enter Expense Goal"
-                        value={expenseGoal}
-                        onChange={(e) => setExpenseGoal(e.target.value)}
-                    />
-                    <button className="btn" onClick={handleExpenseGoalSubmit}>Submit</button>
-                {/* </div> */}
                 </div>
+
 
                 <div className="dataCard categoryCard">
                     <Doughnut
@@ -190,15 +170,13 @@ const Account = () => {
                     />
                 </div>
             </div>
-
             <div className="center">
                 <button onClick={handleLogout}className="btn red">Logout</button>
 
-
             </div>
         </div>
-        
     );
 };
 
 export default Account;
+
