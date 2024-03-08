@@ -3645,10 +3645,8 @@ table span.badge {
 .col.s12.m6{
     margin-top: 2vh;
     margin-bottom: 6vh;
-    background-color: rgba(242, 242, 242, 0.5);
+    /* background-color: rgba(242, 242, 242, 0.5); */
 }
-
-
 
 
 #budgetlist{
@@ -3660,6 +3658,13 @@ table span.badge {
     margin-top: 2vh;
     background-color: rgba(242, 242, 242, 0.5);
 }
+
+/* budget tips / budget graph */
+.graph-tips-container { 
+    margin-top: 2vh;
+    background-color: #d6e0e045;
+    margin-bottom: 5vh;
+  }
 
 .row .col.s8 {
     width: 66.6666666667%;

@@ -233,6 +233,8 @@ const BudgetTracker = () => {
                     </div>
                 </div>
             </section>
+
+            <div className="graph-tips-container">  {/* New custom class name */}
             <section className="row">
                 <div className="col s12 m6">
                     <div className="center">
@@ -290,6 +292,7 @@ const BudgetTracker = () => {
                     </div>
                 </div>
             </section>
+            </div>
         </main>
     );
 };
