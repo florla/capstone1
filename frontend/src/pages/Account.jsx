@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut } from "react-chartjs-2";
-import sourceData from "./data/sourceData.json";
 
 // Update default chart colors
 defaults.color = "black";

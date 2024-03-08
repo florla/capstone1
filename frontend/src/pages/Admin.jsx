@@ -25,13 +25,19 @@ const AdminPage = () => {
         if(!localStorage.getItem('superadmin')){
             window.location.href = '/';
         }
-        fetch('/api/users')
+        fetch('http://localhost:5000/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
-            })
+            
+        })
             .then(data => setUsers(data))
             .catch(error => console.error('Error fetching users:', error));
     }, []);
