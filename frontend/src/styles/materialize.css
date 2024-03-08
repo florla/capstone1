@@ -2138,11 +2138,12 @@
     background-color: #FFFFFF !important;
 }
 
-/* BUDGET COLOR TEXT **** */
 .white-text {
-    font-weight: 700;
+    color: #FFFFFF !important;
+     /* font-weight: 700;
     font-size: 1.9em;
-    color: #152373f5 !important;}
+    color: #152373f5 !important; */
+}
 
 .transparent {
     background-color: transparent !important;
