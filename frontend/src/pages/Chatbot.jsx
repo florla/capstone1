@@ -7,7 +7,7 @@ const Chatbot = () => {
     const [inputText, setInputText] = useState('');
 
     const [chatLog, setChatLog] = useState([
-        { role: "system", content: "You are a helpful assistant for a budgeting website who gives financial advice as a couple of sentences in a JSON output 'response'. Make sure you do not answer any questions that do not relate to financial health." },
+        { role: "system", content: "You are a helpful assistant for a budgeting website who gives financial advice to users as a couple of sentences in ONLY ONE JSON output 'response'. Do not answer questions that are is no way related to financial health but rather advise the user to only ask financial health questions. If you do not understand the question being asked, tell the user to elaborate." },
         { role: "assistant", content: "Hello! If you have any financial questions or need assistance, feel free to ask. I'm here to provide guidance and support."},
       ]); 
 
