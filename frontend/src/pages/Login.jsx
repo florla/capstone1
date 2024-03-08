@@ -42,7 +42,7 @@ function LoginPage() {
             return; // Stop the submission if the form is not valid
         }
         
-        fetch('http://localhost:5000/login', { 
+        fetch('https://capstone1-mlth.onrender.com/login', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),

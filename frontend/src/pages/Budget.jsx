@@ -51,14 +51,11 @@ const BudgetTracker = () => {
         };
         calculateTotalBalance();
         localStorage.setItem('incomes', JSON.stringify(incomeList));
-        console.log(JSON.parse(localStorage.getItem('incomes')))
         localStorage.setItem('expenses', JSON.stringify(expenseList));
-        console.log(JSON.parse(localStorage.getItem('expenses')))
         localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
         localStorage.setItem('totalExpenses', JSON.stringify(totalExpenses));
         localStorage.setItem('budgetList', JSON.stringify(budgetList));
         localStorage.setItem('totalBalance', JSON.stringify(totalBalance));
-        console.log(budgetList);
         if(totalBalance < 0){
             setBalanceColor('rgba(244, 67, 54, 0.8)');
         } else {
@@ -73,7 +70,6 @@ const BudgetTracker = () => {
         let incomeId = `${incomeList.length+1}${Math.random(100)}`;
         setIncomeList([...incomeList, { description: incomeDescription, amount: incomeAmount, category: 'Income', id: `${incomeId}` }]);
         let newBalanceTotal = {category: 'Balance', amount: budgetList.find(budget => budget.category === 'Balance').amount + parseFloat(incomeAmount)};
-        console.log(newBalanceTotal);
         setBudgetList([newBalanceTotal, ...budgetList.filter(budget => budget.category !== 'Balance')]);
         setIncomeDescription('');
         setIncomeAmount('');
@@ -82,7 +78,6 @@ const BudgetTracker = () => {
     const addExpense = () => {
         const expense = parseFloat(expenseAmount);
         let newBalanceTotal = {category: 'Balance', amount: budgetList.find(budget => budget.category === 'Balance').amount - expense};
-        console.log(newBalanceTotal);
         setTotalExpenses(totalExpenses + expense);
         setTotalBalance(totalBalance - expense);
         let expenseId = `${expenseList.length+1}${Math.random(100)}`;
@@ -104,7 +99,6 @@ const BudgetTracker = () => {
     };
 
     const removeExpense = (id) => {
-        console.log(expenseList.find(expense => expense.id === id).amount);
         let newBalanceTotal = {category: 'Balance', amount: parseFloat(budgetList.find(budget => budget.category === 'Balance').amount) + parseFloat(expenseList.find(expense => expense.id === id).amount)};
         let newCategoryTotal = {category: expenseList.find(expense => expense.id === id).category, amount: budgetList.find(budget => budget.category === expenseList.find(expense => expense.id === id).category).amount - expenseList.find(expense => expense.id === id).amount};
         setBudgetList([newBalanceTotal, ...budgetList.filter(budget => budget.category !== expenseList.find(expense => expense.id === id).category && budget.category !== 'Balance'), newCategoryTotal]);
@@ -120,7 +114,7 @@ const BudgetTracker = () => {
 
     const getTip = async () => {
         setBudgetTip('Loading...');
-        await fetch('http://localhost:5000/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList), {
+        await fetch('https://capstone1-mlth.onrender.com/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
