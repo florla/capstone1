@@ -2138,13 +2138,20 @@
     background-color: #FFFFFF !important;
 }
 
-.white-text {
-    color: #FFFFFF !important;
-     /* font-weight: 700;
-    font-size: 1.9em;
-    color: #152373f5 !important; */
-}
+/* .white-text {
+    
+} */
 
+/* BUGET HEADER TOP OF PAGE  */
+.summary-text, .summary-header {
+    font-weight: 700;
+    font-size: 1.9em;
+    color: #152373f5 !important; 
+  }
+
+.row .summary-section {
+    color: plum;
+  }
 .transparent {
     background-color: transparent !important;
 }
@@ -5041,7 +5048,6 @@ small {
     padding: 24px;
     margin: 0.5rem 0 1rem 0;
     border-radius: 2px;
-    background-color: #fff;
 }
 
 .card {
