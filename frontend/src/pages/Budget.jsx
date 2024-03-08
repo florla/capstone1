@@ -128,27 +128,29 @@ const BudgetTracker = () => {
 
     return (
         <main className="container">
-            <h5 className="center">Summary</h5>
-            <section className="row">
-                <div className="col s4">
-                    <div className="card-panel gradient-green" style={{ marginBottom: '20px' }}>
-                        <h5 className="center white-text">Total Income</h5>
-                        <p className="center white-text">${totalIncome}</p>
-                    </div>
-                </div>
-                <div className="col s4">
-                    <div className="card-panel gradient-blue" style={{ marginBottom: '20px' }}>
-                        <h5 className="center white-text">Total Expenses</h5>
-                        <p className="center white-text">${totalExpenses}</p>
-                    </div>
-                </div>
-                <div className="col s4">
-                    <div className="card-panel gradient-teal" style={{ marginBottom: '20px' }}>
-                        <h5 className="center white-text">Total Balance</h5>
-                        <p className="center white-text">${totalBalance}</p>
-                    </div>
-                </div>
-            </section>
+        <h5 className="center">Summary</h5>
+        <section className="row summary-section">
+          <div className="col s4">
+            <div className="card-panel gradient-green" style={{ marginBottom: '20px' }}>
+              <h5 className="center white-text summary-header">Total Income</h5>
+              <p className="center white-text summary-text">${totalIncome}</p>
+            </div>
+          </div>
+          <div className="col s4">
+            <div className="card-panel gradient-blue" style={{ marginBottom: '20px' }}>
+              <h5 className="center white-text summary-header">Total Expenses</h5>
+              <p className="center white-text summary-text">${totalExpenses}</p>
+            </div>
+          </div>
+          <div className="col s4">
+            <div className="card-panel gradient-teal" style={{ marginBottom: '20px' }}>
+              <h5 className="center white-text summary-header">Total Balance</h5>
+              <p className="center white-text summary-text">${totalBalance}</p>
+            </div>
+          </div>
+        </section>
+   
+      
 <section className="row forms-container" id="forms-section">
                 <form className="col s6 budget-form" id="income-form">
                     <h5 className="center">Add Income</h5>
@@ -245,23 +247,23 @@ const BudgetTracker = () => {
                                         data: budgetList.map((data) => data.amount),
                                         backgroundColor: [
                                             balanceColor,
-                                            "rgba(315, 123, 153, 0.8)",  
-                                            "rgba(255, 229, 204, 0.8)",  
-                                            "rgba(255, 255, 204, 0.8)",  
-                                            "rgba(204, 255, 204, 0.8)", 
-                                            "rgba(204, 255, 255, 0.8)",  
-                                            "rgba(204, 204, 255, 0.8)",
-                                            "rgba(255, 204, 255, 0.8)", 
+                                            "rgba(0, 128, 255, 0.8)", 
+                                            "rgba(173, 216, 230, 0.8)", 
+                                            "rgba(77, 144, 232, 0.8)",
+                                            "rgba(47, 99, 79, 0.8)", 
+                                            "rgba(0, 176, 89, 0.8)", 
+                                            "rgba(102, 187, 106, 0.8)", 
+                                            "rgba(181, 230, 216, 0.8)",
                                         ],
                                         borderColor: [
                                             balanceColor,
-                                            "rgba(315, 123, 153, 0.8)",  
-                                            "rgba(255, 229, 204, 0.8)",  
-                                            "rgba(255, 255, 204, 0.8)",  
-                                            "rgba(204, 255, 204, 0.8)", 
-                                            "rgba(204, 255, 255, 0.8)",  
-                                            "rgba(204, 204, 255, 0.8)",
-                                            "rgba(255, 204, 255, 0.8)", 
+                                            "rgba(0, 128, 255, 0.8)", 
+                                            "rgba(173, 216, 230, 0.8)", 
+                                            "rgba(77, 144, 232, 0.8)",
+                                            "rgba(47, 99, 79, 0.8)", 
+                                            "rgba(0, 176, 89, 0.8)", 
+                                            "rgba(102, 187, 106, 0.8)", 
+                                            "rgba(181, 230, 216, 0.8)",
                                         ],
                                         borderWidth: 1,
                                     },
