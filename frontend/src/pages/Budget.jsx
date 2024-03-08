@@ -120,7 +120,7 @@ const BudgetTracker = () => {
 
     const getTip = async () => {
         setBudgetTip('Loading...');
-        await fetch('http://localhost:5000/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList), {
+        await fetch('https://capstone1-mlth.onrender.com/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

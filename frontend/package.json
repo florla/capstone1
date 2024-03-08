@@ -1,7 +1,7 @@
 {
-  "name": "mocklrnr",
+  "name": "capstone1-frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:5000",
+  "proxy": "https://capstone1-mlth.onrender.com",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",

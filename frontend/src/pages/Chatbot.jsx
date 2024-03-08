@@ -30,7 +30,7 @@ const Chatbot = () => {
             //     setMessages(prevMessages => [...prevMessages, botResponse]); // Append bot response to the messages array
             // }, 1000);            
             console.log(chatLog);
-            await fetch('http://localhost:5000/chat?prompt='+JSON.stringify([...chatLog, { role: "user", content: inputText }]), {
+            await fetch('https://capstone1-mlth.onrender.com/chat?prompt='+JSON.stringify([...chatLog, { role: "user", content: inputText }]), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

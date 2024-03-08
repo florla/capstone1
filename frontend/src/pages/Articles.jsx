@@ -16,7 +16,7 @@ const Articles = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/articles?category=${selectedCategory}`);
+                const response = await axios.get(`https://capstone1-mlth.onrender.com/api/articles?category=${selectedCategory}`);
                 setArticles(response.data.articles);
             } catch (error) {
                 console.error('Error fetching articles:', error);
@@ -56,7 +56,7 @@ const Articles = () => {
                             <span className="card-title">{article.title}</span>
                                 <p>{article.description}</p>
                                 <p>Author: {article.author}</p>
-                                <p>Published At: {new Date(article.publishedAt).toLocaleString()}</p>
+                                <p>Published: {new Date(article.publishedAt).toLocaleString()}</p>
                             </div>
                             <div className="card-action">
                                 <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
