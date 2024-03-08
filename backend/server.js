@@ -122,7 +122,7 @@ async function getTip(incomes, expenses) {
   // Prompt for budget tip generation
   let tipPrompt = [
     { role: "system", content: "You are a helpful assistant for a budgeting website who gives tips based on users' budget info as a couple of sentences in a JSON output 'tip'." },
-    { role: "system", content: "Here is the users income: "+(incomes)+". Here is the users expenses: "+(expenses)+". Please generate a financial tip for the user based on this information."},
+    { role: "system", content: "Here is a list of the users income: "+(incomes)+". Here is a list of the users expenses: "+(expenses)+". Please generate a financial tip for the user based on this information."},
   ]; 
   console.log(tipPrompt);
     const completion = await openai.chat.completions.create({
@@ -144,7 +144,11 @@ app.post('/getBudgetTip', async (req, res) => {
     return res.send({error: "You must provide an expense list."});
   }
   let budgetTip = await getTip(req.query.incomes, req.query.expenses);
-  res.send(JSON.parse(budgetTip));
+  try {
+    res.send(JSON.parse(budgetTip));
+  } catch (error) {
+    res.send({tip: "Unable to generate a tip at this time. Please try again later."});
+  }
 });
 //Example URL: http://localhost:5000/getBudgetTip
 
@@ -166,8 +170,12 @@ app.post('/chat', async (req, res) => {
   console.log(prompt);
   let response = await chat(prompt);
   console.log(response);
-  res.send(JSON.parse(response));
-});
+  try{
+    res.send(JSON.parse(response));
+  }
+  catch(err){
+    res.send({response: "I'm sorry but could you try rephrasing your question?"});
+  }});
 //Example URL: http://localhost:5000/chat?prompt=How%20do%20I%20apply%20for%20a%20home%20loan%3F
 
 // articlesRouter under the '/api' 
