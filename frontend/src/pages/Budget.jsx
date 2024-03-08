@@ -120,7 +120,12 @@ const BudgetTracker = () => {
 
     const getTip = async () => {
         setBudgetTip('Loading...');
-        await fetch('http://localhost:5000/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList))
+        await fetch('http://localhost:5000/getBudgetTip?incomes=' + JSON.stringify(incomeList) + '&expenses=' + JSON.stringify(expenseList), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
         .then(response => response.json()).then(data => {
             setBudgetTip(data.tip);
         });
