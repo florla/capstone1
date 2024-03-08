@@ -31,7 +31,6 @@ const RegisterPage = () => {
             if(data.invalid){
                 return setSuccessMessage(data.invalid);
             }
-            console.log('Success:', data.message);
             // Reset form data
             setFormData({ fullName: '', email: '', password: '' });
             // Set success message

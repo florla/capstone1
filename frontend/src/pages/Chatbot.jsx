@@ -29,7 +29,6 @@ const Chatbot = () => {
             //     const botResponse = { text: "I'm sorry, I'm just a demo chatbot and I don't have real responses.", sender: "bot" };
             //     setMessages(prevMessages => [...prevMessages, botResponse]); // Append bot response to the messages array
             // }, 1000);            
-            console.log(chatLog);
             await fetch('https://capstone1-mlth.onrender.com/chat?prompt='+JSON.stringify([...chatLog, { role: "user", content: inputText }]), {
                 method: 'POST',
                 headers: {
