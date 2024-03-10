@@ -11,6 +11,7 @@ import ContactForm from './pages/Contact';
 import Articles from './pages/FinancialArticles';
 import Chatbot from './pages/Chatbot';
 import AdminPage from './pages/Admin';
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/FinancialArticles" element={<Articles />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path='*' element={<NotFound />}/>
         </Routes>
         <Footer />
       </Router>

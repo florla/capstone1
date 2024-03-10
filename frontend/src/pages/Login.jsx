@@ -22,7 +22,7 @@ function LoginPage() {
             errors.password = 'Password is required.';
         }
 
-      
+
         setErrors(errors);
         return isValid;
     };
@@ -41,37 +41,37 @@ function LoginPage() {
         if (!validateForm()) {
             return; // Stop the submission if the form is not valid
         }
-        
-        fetch('https://capstone1-mlth.onrender.com/login', { 
+
+        fetch('https://capstone1-mlth.onrender.com/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.token) {
-                // Save the token to local storage
-                localStorage.setItem('userToken', data.token);
-                localStorage.setItem('fullName', data.user.fullName);
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    // Save the token to local storage
+                    localStorage.setItem('userToken', data.token);
+                    localStorage.setItem('fullName', data.user.fullName);
 
 
-                // Redirect to profile page or load profile information
-                
-                if(data.user.admin === 1){
-                    localStorage.setItem('superadmin', data.user.admin);
-                    window.location.href = '/admin';
-                }else {
-                    window.location.href = '/account';
+                    // Redirect to profile page or load profile information
+
+                    if (data.user.admin === 1) {
+                        localStorage.setItem('superadmin', data.user.admin);
+                        window.location.href = '/admin';
+                    } else {
+                        window.location.href = '/account';
+                    }
+
+                } else {
+                    throw new Error(data.message || 'Login failed');
                 }
-                
-            } else {
-                throw new Error(data.message || 'Login failed');
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            setLoginStatus('Login failed. Please check your credentials.');
-        });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setLoginStatus('Login failed. Please check your credentials.');
+            });
     };
 
     return (
