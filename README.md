@@ -3,7 +3,7 @@
 
 ## WealthWave App Frontend 
 
-![Logo](../assets/wave-wealthlogo.png)
+![Logo](./frontend/src/assets/wave-wealthlogo.png)
 
 **WealthWave** empowers you to take control of your finances and achieve your financial goals. 
 
