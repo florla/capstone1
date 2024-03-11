@@ -29,7 +29,7 @@ function App() {
                                 <h5 className="header col s12 light">Ride the Wave to Wealth! <br></br></h5>
                             </div>
                             <div className="row center">
-                                <a href="#!" className="btn-large waves-effect waves-light lighten-1">Find out more</a>
+                                <a href="/register" className="btn-large waves-effect waves-light lighten-1">Register Now</a>
                             </div>
                         </div>
                     </div>
@@ -49,15 +49,15 @@ function App() {
                             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> */}
 
-<p>Welcome to our financial assistance platform! <br></br>We are dedicated to helping you achieve financial wellness and stability. </p>
-               <p>Explore our platform for a comprehensive range of financial tools and resources. Benefit from intuitive budgeting tools to effortlessly manage your finances. Access expert advice tailored to your specific financial needs, from retirement planning to debt management. Utilize our interactive chatbox for instant tips and guidance on budgeting and saving, available 24/7 to support your financial journey.</p>
-                <p>At WealthWave, we are committed to empowering you on your financial journey. Take control of your finances and achieve your goals with our comprehensive suite of tools and resources.</p>
+                            <p>Welcome to our financial assistance platform! <br></br>We are dedicated to helping you achieve financial wellness and stability. </p>
+                            <p>Explore our platform for a comprehensive range of financial tools and resources. Benefit from intuitive budgeting tools to effortlessly manage your finances. Access expert advice tailored to your specific financial needs, from retirement planning to debt management. Utilize our interactive chatbox for instant tips and guidance on budgeting and saving, available 24/7 to support your financial journey.</p>
+                            <p>At WealthWave, we are committed to empowering you on your financial journey. Take control of your finances and achieve your goals with our comprehensive suite of tools and resources.</p>
                         </div>
                     </div>
                 </div>
                 {/* <div><img src="#" alt="img" /></div> */}
             </div>
-            
+
 
             <div className="container section-container">
 

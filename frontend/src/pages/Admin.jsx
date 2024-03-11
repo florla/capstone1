@@ -4,7 +4,7 @@ const AdminPage = () => {
     const [users, setUsers] = useState([]);
 
     const deleteUser = (id) => {
-        fetch(`http://localhost:5000/delete`, {
+        fetch(`https://capstone1-mlth.onrender.com/delete`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,13 +25,19 @@ const AdminPage = () => {
         if(!localStorage.getItem('superadmin')){
             window.location.href = '/';
         }
-        fetch('/api/users')
+        fetch('https://capstone1-mlth.onrender.com/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
-            })
+            
+        })
             .then(data => setUsers(data))
             .catch(error => console.error('Error fetching users:', error));
     }, []);

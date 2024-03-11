@@ -14,7 +14,7 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:5000/register', { // Use https in production
+        fetch('https://capstone1-mlth.onrender.com/register', { // Use https in production
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,6 @@ const RegisterPage = () => {
             if(data.invalid){
                 return setSuccessMessage(data.invalid);
             }
-            console.log('Success:', data.message);
             // Reset form data
             setFormData({ fullName: '', email: '', password: '' });
             // Set success message
