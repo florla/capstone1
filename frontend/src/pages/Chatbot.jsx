@@ -62,7 +62,7 @@ const Chatbot = () => {
                 </div>
                 <div className="input-field">
                     <input type="text" id="chat-input" value={inputText} onChange={handleInputChange} onKeyPress={handleKeyPress} />
-                    <button className="waves-effect waves-light btn" onClick={handleSendMessage}>Send</button>
+                    <button className="waves-effect waves-light btn" data-cy="send-button" onClick={handleSendMessage}>Send</button>
                 </div>
             </div>
         </div>
