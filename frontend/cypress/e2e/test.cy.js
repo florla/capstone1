@@ -1,3 +1,13 @@
+
+
+describe('home page working' , () => {
+    it('should visit the home page', () => {
+        cy.visit('http://localhost:3000');
+    });
+});
+
+
+
 describe('Navigation', () => {
     it('should navigate to the account page using the navbar', () => {
         cy.visit('http://localhost:3000');
