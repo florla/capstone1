@@ -7,6 +7,7 @@ const RegisterPage = () => {
         password: '',
     });
     const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,11 +30,13 @@ const RegisterPage = () => {
         })
         .then(data => {
             if(data.invalid){
-                return setSuccessMessage(data.invalid);
+                setSuccessMessage('');
+                return setErrorMessage(data.invalid);
             }
             // Reset form data
             setFormData({ fullName: '', email: '', password: '' });
             // Set success message
+            setErrorMessage('');
             setSuccessMessage('Registration successful! Redirecting to login page...');
             setTimeout(() => {
                 // Redirect to login page
@@ -55,6 +58,11 @@ const RegisterPage = () => {
                         {successMessage && (
                             <div className="success-message">
                                 {successMessage}
+                            </div>
+                        )}
+                        {errorMessage && (
+                            <div className="error-message">
+                                {errorMessage}
                             </div>
                         )}
                         <form className="col s12 m12" onSubmit={handleSubmit}>

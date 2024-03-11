@@ -68,8 +68,8 @@ const Account = () => {
 
             <h5>Stats</h5>
             <div className="App">
-                <div className="revenueCard" style={{ margin: '0 auto', width: 'fit-content' }}>
-                    <Bar
+                <div className="revenueCard" style={{ margin: '0 auto', justifyContent: "center"}}>
+                <Bar
                         data={{
                             labels: budgetList.map((data) => data.category),
                             datasets: [
@@ -93,9 +93,9 @@ const Account = () => {
                         options={{
                             plugins: {
                                 title: {
-                                    display: true,
                                     text: "Revenue Source",
                                 },
+
                             },
                         }}
                     />

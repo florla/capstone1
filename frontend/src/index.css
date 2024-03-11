@@ -135,9 +135,17 @@ code {
   font-size: 1.5rem; 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
   .btn i.material-icons {
       display: none;
+  }
+
+  #logo-container {
+      height: 56px;
+  }
+
+  #titleText{
+      font-size: 3.2rem;
   }
 }
 

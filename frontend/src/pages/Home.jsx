@@ -24,7 +24,7 @@ function App() {
                     <div className="section no-pad-bot">
                         <img src={wavelogo} alt="Wealthwave Logo2" className="responsive-img2" />
                         <div className="container">
-                            <h1 className="header center teal-text text-lighten-2">WEALTHWAVE</h1>
+                            <h1 className="header center teal-text text-lighten-2" id='titleText'>WEALTHWAVE</h1>
                             <div className="row center">
                                 <h5 className="header col s12 light">Ride the Wave to Wealth! <br></br></h5>
                             </div>

@@ -24,9 +24,9 @@ const Navbar = () => {
         }
     };
     const accountClick = () => {
+        setIsOpen(false);
         if(!localStorage.getItem('userToken')){ 
             window.location.href = '/login';
-            
         }}   
 
     // Effect to add event listener for clicks outside of the mobile nav
@@ -40,7 +40,7 @@ const Navbar = () => {
 
     // JSX for the Navbar component
     return (
-        <div>
+        <div id = "navBar">
             <nav className="gradient-nav-foot" role="navigation">
                 <div className="nav-wrapper container" ref={navRef}>
                     {/* Logo */}

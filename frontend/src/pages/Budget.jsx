@@ -200,13 +200,13 @@ const BudgetTracker = () => {
                                     <tr key={index}>
                                         <td>{income.description}</td>
                                         <td>${income.amount}</td>
-                                        <button type="button" className="waves-effect waves-light btn" onClick={() => { removeIncome(income.id) }}>Delete</button>
+                                        <button type="button" className="btn red" onClick={() => { removeIncome(income.id) }}>X</button>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <div className="col s12 m6">
+                    <div className="col s12 m6" >
                         <h5 className="center">Expense List</h5>
                         <table className="striped">
 
@@ -215,7 +215,7 @@ const BudgetTracker = () => {
                                 <tr>
                                     <th>Description</th>
                                     <th>Amount</th>
-                                    <th>Category</th>
+                                    {/* <th>Category</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -223,8 +223,8 @@ const BudgetTracker = () => {
                                     <tr key={index}>
                                         <td>{expense.description}</td>
                                         <td>${expense.amount}</td>
-                                        <td>{expense.category}</td>
-                                        <button type="button" className="waves-effect waves-light btn" onClick={() => { removeExpense(expense.id) }}>Delete</button>
+                                        {/* <td>{expense.category}</td> */}
+                                        <button type="button" className="btn red" onClick={() => { removeExpense(expense.id) }}>X</button>
                                     </tr>
                                 ))}
                             </tbody>

@@ -7,7 +7,6 @@ describe('home page working' , () => {
 });
 
 
-
 describe('Navigation', () => {
     it('should navigate to the account page using the navbar', () => {
         cy.visit('http://localhost:3000');

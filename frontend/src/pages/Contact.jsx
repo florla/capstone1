@@ -110,7 +110,7 @@ function ContactForm() {
                         </p>
                         <p>
                             <strong>Address:</strong><br />
-                            1234 Main St<br />
+                            1234 Wealth St<br />
                             Charlotte, NC 12345 
                         </p>    
                         <p>
