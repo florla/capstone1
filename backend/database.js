@@ -1,13 +1,14 @@
 import mysql from 'mysql2';
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
+    connectionLimit : 10,
     host: 'sql5.freesqldatabase.com',
     user: 'sql5690414',    
     password: 'SWIHe8T3FA',
     database: 'sql5690414',
 });
 
-connection.connect(function (err) {
+connection.getConnection(function (err) {
     if (err) {
         console.error('Error connecting to the database: ', err);
         return;
