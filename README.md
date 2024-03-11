@@ -153,3 +153,68 @@ Example Request (all categories):
 ### Example Request (articles for financial education and wellness):
 
  ``` http://localhost:5000/api/articles?category=financial%20education%20wellness ```
+
+
+
+## Unit Testing with Cypress (Frontend)
+Cypress is a popular end-to-end (E2E) testing framework that can also be used for unit testing frontend components in isolation. Here's how to set up and run unit tests with Cypress:
+
+`Pre-requisites`:
+
+Ensure you have the backend server **(node server.js)** and frontend React running **(npm start)** in order for cypress testing unit to work.
+
+
+### Installation:
+
+make sure you cd to `/frontend` in order to install Cypress. 
+
+Install Cypress:
+
+``` Bash
+npm install -g cypress
+
+```
+
+Run Cypress / Open the Cypress Test Runner :
+
+
+``` Bash
+cypress open
+
+```
+
+This will launch the Cypress Test Runner in your browser, allowing you to visualize and execute tests.
+
+Run Tests on designated file: :
+
+
+``` Bash
+ test.cy.js
+
+```
+
+## Unit Testing with Jest (Backend)
+
+### Installation:
+
+Navigate to the backend directory:
+
+``` Bash
+cd /backend 
+
+```
+
+Install Jest:
+
+``` Bash
+npm install --save-dev jest
+```
+
+
+Run Tests on designated file:
+
+
+``` Bash
+npm test server.test.js
+
+```
