@@ -54,7 +54,6 @@ function LoginPage() {
                 localStorage.setItem('userToken', data.token);
                 localStorage.setItem('fullName', data.user.fullName);
 
-
                 // Redirect to profile page or load profile information
                 
                 if(data.user.admin === 1){

@@ -2,9 +2,9 @@ import mysql from 'mysql2';
 
 const connection = mysql.createConnection({
     host: 'sql5.freesqldatabase.com',
-    user: 'sql5688667',    
-    password: 'mwJimZKRwe',
-    database: 'sql5688667',
+    user: 'sql5690414',    
+    password: 'SWIHe8T3FA',
+    database: 'sql5690414',
 });
 
 connection.connect(function (err) {
