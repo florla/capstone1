@@ -68,7 +68,7 @@ const Account = () => {
 
             <h5>Stats</h5>
             <div className="App">
-                <div className="revenueCard" style={{ margin: '0 auto', justifyContent: "center"}}>
+                <div className="revenueCard" style={{ margin: '0 auto', display: 'flex', justifyContent: "center"}}>
                 <Bar
                         data={{
                             labels: budgetList.map((data) => data.category),
