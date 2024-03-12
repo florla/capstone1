@@ -44,6 +44,10 @@ const BudgetTracker = () => {
     const [budgetList, setBudgetList] = useState(JSON.parse(localStorage.getItem('budgetList')));
     const [budgetTip, setBudgetTip] = useState('');
     const [balanceColor, setBalanceColor] = useState('rgba(79, 195, 247, 0.8)');
+    const [incomeInvalid, setIncomeInvalid] = useState('');
+    const [incomeSuccess, setIncomeSuccess] = useState('');
+    const [expenseInvalid, setExpenseInvalid] = useState('');
+    const [expenseSuccess, setExpenseSuccess] = useState('');
 
     useEffect(() => {
         const calculateTotalBalance = () => {
@@ -64,6 +68,11 @@ const BudgetTracker = () => {
     }, [totalIncome, totalExpenses, incomeList, expenseList, budgetList, totalBalance]);
 
     const addIncome = () => {
+        if(!incomeDescription || !incomeAmount){
+            setIncomeInvalid('Please fill in all fields.');
+            return;
+        }
+        setIncomeInvalid('');
         const income = parseFloat(incomeAmount);
         setTotalIncome(totalIncome + income);
         setTotalBalance(totalBalance + income);
@@ -73,9 +82,18 @@ const BudgetTracker = () => {
         setBudgetList([newBalanceTotal, ...budgetList.filter(budget => budget.category !== 'Balance')]);
         setIncomeDescription('');
         setIncomeAmount('');
+        setIncomeSuccess('Income added successfully.');
+        setTimeout(() => {
+            setIncomeSuccess('');
+        }, 3000);
     };
 
     const addExpense = () => {
+        if(!expenseDescription || !expenseAmount || !expenseCategory){
+            setExpenseInvalid('Please fill in all fields.');
+            return;
+        }
+        setExpenseInvalid('');
         const expense = parseFloat(expenseAmount);
         let newBalanceTotal = { category: 'Balance', amount: budgetList.find(budget => budget.category === 'Balance').amount - expense };
         setTotalExpenses(totalExpenses + expense);
@@ -87,6 +105,10 @@ const BudgetTracker = () => {
         setExpenseDescription('');
         setExpenseAmount('');
         setExpenseCategory('');
+        setExpenseSuccess('Expense added successfully.');
+        setTimeout(() => {
+            setExpenseSuccess('');
+        }, 3000);
     };
 
     const removeIncome = (id) => {
@@ -160,6 +182,8 @@ const BudgetTracker = () => {
                         <input type="number" id="income-amount" placeholder='Amount' value={incomeAmount} onChange={(e) => setIncomeAmount(e.target.value)} required />
                     </div>
                     <button type="button" className="waves-effect waves-light btn" onClick={addIncome}>Add Income</button>
+                    {incomeInvalid && <div className="red-text">{incomeInvalid}</div>}
+                    {incomeSuccess && <div className="green-text">{incomeSuccess}</div>}
                 </form>
                 <form className="col s6 budget-form" id="expense-form">
                     <h5 className="center">Add Expense</h5>
@@ -182,6 +206,8 @@ const BudgetTracker = () => {
                         </select>
                     </div>
                     <button type="button" className="waves-effect waves-light btn" onClick={addExpense}>Add Expense</button>
+                    {expenseInvalid && <div className="red-text">{expenseInvalid}</div>}
+                    {expenseSuccess && <div className="green-text">{expenseSuccess}</div>}
                 </form>
             </section>
             <section className="row">
