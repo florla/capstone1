@@ -8,6 +8,9 @@ const RegisterPage = () => {
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [invalidName, setInvalidName] = useState(''); 
+    const [invalidEmail, setInvalidEmail] = useState('');
+    const [invalidPassword, setInvalidPassword] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,6 +18,25 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setInvalidEmail('');
+        setInvalidName('');
+        setInvalidPassword('');
+        if(!formData.fullName){
+            setInvalidName('Please enter your full name.');
+        }
+        if(!formData.email){
+            setInvalidEmail('Please enter your email.');
+        }
+        if(!formData.password){
+            setInvalidPassword('Please enter your password.');
+        }
+        if(!formData.fullName || !formData.email || !formData.password){
+            return;
+        }
+        if(formData.email && !formData.email.includes('@')){
+            return setInvalidEmail('Please enter a valid email.');
+        }
+        
         fetch('https://capstone1-mlth.onrender.com/register', { // Use https in production
             method: 'POST',
             headers: {
@@ -78,6 +100,7 @@ const RegisterPage = () => {
                                         value={formData.fullName}
                                         onChange={handleChange}
                                     />
+                                    {invalidName && <span className="helper-text" style={{ color: 'red' }}>{invalidName}</span>}
                                 </div>
 
                                 <div className="input-field col s12 m12">
@@ -91,6 +114,7 @@ const RegisterPage = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                     />
+                                    {invalidEmail && <span className="helper-text" style={{ color: 'red' }}>{invalidEmail}</span>}
                                 </div>
 
                                 <div className="input-field col s12 m12">
@@ -104,6 +128,7 @@ const RegisterPage = () => {
                                         value={formData.password}
                                         onChange={handleChange}
                                     />
+                                    {invalidPassword && <span className="helper-text" style={{ color: 'red' }}>{invalidPassword}</span>}
                                 </div>
                             </div>
                             <button className="btn waves-effect waves-light center-align" type="submit" name="action">
